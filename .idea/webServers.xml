@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bc5744ee-d37e-4e91-9818-9b1ff279784e" name="Serve Apps" url="http://192.168.6.178">
+        <fileTransfer host="192.168.6.178" port="22" rootFolder="/home/apps" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="835b3f2c-4491-417f-a8e9-bdb4609e54ee" name="Root" url="http://192.168.6.178">
+        <fileTransfer host="192.168.6.178" port="22" rootFolder="/var/www/html/webprofile" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
