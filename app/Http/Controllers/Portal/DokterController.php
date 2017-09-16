@@ -9,4 +9,8 @@ class DokterController extends PortalController {
     public function __construct(){
         $this->module = 'dokter';
     }
+
+    public function loadtable(){
+
+    }
 }

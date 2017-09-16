@@ -27,16 +27,16 @@
             <ul class="navigation navigation-main navigation-accordion">
                 <!-- My Ananda Hospital -->
                 <li class="navigation-header"><span>My Ananda Hospital</span> <i class="icon-menu" title="Main pages"></i></li>
-                <li><a href="{{url('portal')}}"><i class="fa fa-users"></i> <span>Data Akun</span></a></li>
-                <li><a href="{{url('portal')}}"><i class="fa fa-list-ol"></i> <span>Rawat Jalan</span></a></li>
-                <li><a href="{{url('portal')}}"><i class="fa fa-image"></i> <span>Slide Gambar</span></a></li>
+                <li><a id="akun" href="{{url('portal/akun')}}" class="navigator"><i class="fa fa-users"></i> <span>Data Akun</span></a></li>
+                <li><a id="rawatjalan" href="{{url('portal/rawatjalan')}}" class="navigator"><i class="fa fa-list-ol"></i> <span>Rawat Jalan</span></a></li>
+                <li><a id="slidegambar" href="{{url('portal/slidegambar')}}" class="navigator"><i class="fa fa-image"></i> <span>Slide Gambar</span></a></li>
             </ul>
 
             <ul class="navigation navigation-main navigation-accordion">
                 <!-- Portal Ananda Hospital -->
                 <li class="navigation-header"><span>Portal Ananda Hospital</span> <i class="icon-menu" title="Main pages"></i></li>
                 <li><a id="dokter" href="{{url('portal/dokter')}}" class="navigator"><i class="fa fa-user-md"></i> <span>Data Dokter</span></a></li>
-                <li><a href="{{url('portal')}}"><i class="fa fa-calendar"></i> <span>Jadwal Praktek</span></a></li>
+                <li><a id="jadwal" href="{{url('portal/jadwal')}}" class="navigator"><i class="fa fa-calendar"></i> <span>Jadwal Praktek</span></a></li>
             </ul>
         </div>
     </div>
@@ -45,9 +45,9 @@
 
 <script>
     $(document).ready(function(){
-        var menu = window.location.href.replace("{{url('/admin')}}/","");
+        var menu = window.location.href.replace("{{url('/portal')}}/","");
         $(window).on('popstate', function() {
-            var menu = window.location.href.replace("{{url('/admin')}}/","");
+            var menu = window.location.href.replace("{{url('/portal')}}/","");
             console.log(menu);
             $("#"+menu).trigger("click");
         });
