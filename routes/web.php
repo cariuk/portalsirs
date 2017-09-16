@@ -22,6 +22,12 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'],function() {
     Route::get('portal/home', 'Portal\HomeController@index')->name('home');
+
+    Route::get('portal/akun', 'Portal\AkunController@index')->name('akun');
+    Route::get('portal/akun/loaddata', 'Portal\AkunController@loaddata');
+
     Route::get('portal/dokter', 'Portal\DokterController@index')->name('dokter');
     Route::get('portal/dokter/loaddata', 'Portal\DokterController@loaddata');
+
+    Route::get('portal/jadwal', 'Portal\JadwalPraktekController@index')->name('jadwal');
 });
