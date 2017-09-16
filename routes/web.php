@@ -14,8 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 Route::get('portal','Auth\LoginController@showLoginForm')->name('portal');
 Route::post('portal','Auth\LoginController@login');
-Route::post('logout','Auth\LoginController@logout')->name('logout');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'],function() {
+    Route::get('portal/home', 'HomeController@index')->name('home');
+    Route::get('/dokter', 'DokterController@index')->name('dokter');
+});
