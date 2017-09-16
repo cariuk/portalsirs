@@ -22,7 +22,7 @@
             <ul class="navigation navigation-main navigation-accordion">
                 <!-- Main -->
                 <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-                <li><a href="{{url('portal')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                <li><a id="home" href="{{url('portal/home')}}" class="navigator"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
             </ul>
             <ul class="navigation navigation-main navigation-accordion">
                 <!-- My Ananda Hospital -->
@@ -45,9 +45,54 @@
 
 <script>
     $(document).ready(function(){
-        $(".navigator").click(function(){
-            $menu = $(this).attr("id");
+        var menu = window.location.href.replace("{{url('/admin')}}/","");
+        $(window).on('popstate', function() {
+            var menu = window.location.href.replace("{{url('/admin')}}/","");
+            console.log(menu);
+            $("#"+menu).trigger("click");
+        });
 
+        $(".navigator").click(function(){
+            var block = $(".value-content").parent().parent(),menu=$(this).attr('href');
+            $(".navigation li").removeClass("active");
+            $(this).parent().addClass("active");
+            $.ajax({
+                url		: menu,
+                type	: "GET",
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success	: function(response){
+                    if (response.status == 200){
+                        $(".value-content").html(response.content);
+                    }else if (response.status==401) {
+                        window.location.replace(response.direct);
+                    }
+                    $(block).unblock();
+                },
+                beforeSend: function () {
+                    $(block).block({
+                        message: '<i class="icon-spinner2 spinner"></i>',
+                        overlayCSS: {
+                            backgroundColor: '#d1cdcf',
+                            opacity: 0.8,
+                            cursor: 'wait',
+                            'box-shadow': '0 0 0 1px #ddd'
+                        },
+                        css: {
+                            border: 0,
+                            padding: 0,
+                            backgroundColor: 'none'
+                        }
+                    });
+                },
+                complete: function () {},
+                error:function(xhr,thrownError,err){
+                    $(block).unblock();
+                }
+            });
+            history.pushState(null, null,window.location.href);
+            history.replaceState({},"{{url('/')}}",$(this).attr("href"));
+            return false;
         });
     });
 </script>
