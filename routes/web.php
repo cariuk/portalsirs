@@ -21,6 +21,6 @@ Route::post('portal','Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'],function() {
-    Route::get('portal/home', 'HomeController@index')->name('home');
-    Route::get('/dokter', 'DokterController@index')->name('dokter');
+    Route::get('portal/home', 'Portal\HomeController@index')->name('home');
+    Route::get('portal/dokter', 'Portal\DokterController@index')->name('dokter');
 });
