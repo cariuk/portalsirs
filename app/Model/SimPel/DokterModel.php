@@ -11,7 +11,8 @@ class DokterModel extends SimPelConf {
 
     public static function getdataDokter($page,$seacrh){
         $data = DokterModel::select(
-            "master.pegawai.NIP as id",
+            "master.pegawai.NIP",
+            "master.dokter.ID as IDDOKTER",
             "master.pegawai.*",
             "master.dokter.*",
             "master.referensi.*"
@@ -21,11 +22,15 @@ class DokterModel extends SimPelConf {
             $data->orwhere("master.pegawai.NIP","like","$seacrh");
         }
         $data->where("master.pegawai.status","=","1");
+        $data->where("master.pegawai.SMF","<>","0");
+        $data->where("master.pegawai.SMF","<>","36");
+        $data->where("master.pegawai.SMF","<>","37");
+        $data->where("master.pegawai.SMF","<>","31");
         $data->join("master.dokter","master.dokter.nip","=","master.pegawai.nip");
         $data->join('master.referensi', function($join){
             $join->on('master.referensi.ID', '=', 'master.pegawai.SMF')
                 ->where("master.referensi.jenis", "=", "26");
         });
-        return $data->paginate(10, ['*'], 'page', $page);
+        return $data->paginate(10, ['*'], 'page', $page==null?1:$page);
     }
 }

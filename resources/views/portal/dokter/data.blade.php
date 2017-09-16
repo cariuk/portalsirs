@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Cariuk
- * Date: 9/16/17
- * Time: 5:39 PM
- */
+@foreach($data as $row)
+    <tr>
+        <td>
+            {{$row->IDDOKTER}}
+        </td>
+        <td>
+            {{$row->GELAR_DEPAN.". ".$row->NAMA.", ".$row->GELAR_BELAKANG}}
+        </td>
+        <td>
+            {{$row->DESKRIPSI}}
+        </td>
+    </tr>
+@endforeach
