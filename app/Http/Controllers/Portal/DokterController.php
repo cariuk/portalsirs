@@ -10,7 +10,7 @@ class DokterController extends PortalController {
         $this->module = 'dokter';
     }
 
-    public function loadtable(){
+    public function loaddata(){
 
     }
 }

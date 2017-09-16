@@ -32,6 +32,9 @@
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/moment/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/pickers/daterangepicker.js') }}"></script>
 
+    <!-- Theme JS files -->
+    <script src="{{ asset('assets/js/plugins/pagination/twbs-pagination/jquery.twbsPagination.min.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('assets/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/layout_fixed_native.js') }}"></script>
