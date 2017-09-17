@@ -1,13 +1,20 @@
 @foreach($data as $row)
     <tr>
         <td>
-            {{$row->IDDOKTER}}
+            {{$row->id}}
         </td>
         <td>
-            {{$row->GELAR_DEPAN.". ".$row->NAMA.", ".$row->GELAR_BELAKANG}}
+            {{$row->username}}
         </td>
         <td>
-            {{$row->DESKRIPSI}}
+            Email : {{$row->email}}<br/>
+            Nomot Tlp : {{$row->nomor_tlp}}
+        </td>
+        <td>
+            {{$row->created_at}}
+        </td>
+        <td>
+            {{$row->verification}}
         </td>
     </tr>
 @endforeach

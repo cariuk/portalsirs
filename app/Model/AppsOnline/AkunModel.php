@@ -20,4 +20,14 @@ class AkunModel extends Model{
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function getdata($page,$seacrh){
+        $data = AkunModel::select();
+        if ($seacrh!=""){
+            $data->where("username","like","%$seacrh%");
+            $data->orwhere("email","like","$seacrh");
+            $data->orwhere("nomor_tlp","like","$seacrh");
+        }
+        return $data->paginate(10, ['*'], 'page', $page==null?1:$page);
+    }
 }

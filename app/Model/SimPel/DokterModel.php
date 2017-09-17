@@ -9,7 +9,7 @@ class DokterModel extends SimPelConf {
     protected $primaryKey = "nip";
     public $incrementing = false;
 
-    public static function getdataDokter($page,$seacrh){
+    public static function getdata($page,$seacrh){
         $data = DokterModel::select(
             "master.pegawai.NIP",
             "master.dokter.ID as IDDOKTER",
