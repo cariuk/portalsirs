@@ -31,6 +31,7 @@
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/moment/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/pickers/daterangepicker.js') }}"></script>
+    <script type="text/javascript" src="{{asset('/assets/js/plugins/forms/validation/validate.min.js')}}"></script>
 
     <!-- Theme JS files -->
     <script src="{{ asset('assets/js/plugins/pagination/twbs-pagination/jquery.twbsPagination.min.js') }}"></script>
