@@ -38,6 +38,12 @@
                 <li><a id="dokter" href="{{url('portal/dokter')}}" class="navigator"><i class="fa fa-user-md"></i> <span>Data Dokter</span></a></li>
                 <li><a id="jadwal" href="{{url('portal/jadwal')}}" class="navigator"><i class="fa fa-calendar"></i> <span>Jadwal Praktek</span></a></li>
             </ul>
+
+            <ul class="navigation navigation-main navigation-accordion">
+                <!-- Pengaturan -->
+                <li class="navigation-header"><span>Pengaturan</span> <i class="icon-menu" title="Main pages"></i></li>
+                <li><a id="userapps" href="{{url('portal/userapps')}}" class="navigator"><i class="fa fa-user"></i> <span>User</span></a></li>
+            </ul>
         </div>
     </div>
     <!-- /main navigation -->

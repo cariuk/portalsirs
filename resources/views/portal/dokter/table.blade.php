@@ -1,13 +1,14 @@
 <ul class="pagination pull-right twbs-pagination"></ul>
 <br /><hr />
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-hover table-bordered">
         <thead>
         <tr class="border-double">
+            <th width="80px">ID</th>
+            <th width="400px">Nama Dokter</th>
+            <th width="150px">Spesialis</th>
+            <th width="100px">Status</th>
             <th>#</th>
-            <th>Nama Dokter</th>
-            <th>Spesialis</th>
-            <th>Aksi</th>
         </tr>
         </thead>
         <tbody class="datalist">

@@ -110,6 +110,7 @@
                 <div class="value-content">
                     {!! $content !!}
                 </div>
+                @include('portal.layouts.modals')
                 <!-- /value content -->
                 <!-- Footer -->
                 <div class="footer text-muted">
