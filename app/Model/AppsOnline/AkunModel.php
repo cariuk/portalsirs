@@ -21,7 +21,7 @@ class AkunModel extends Model{
         'password', 'remember_token',
     ];
 
-    public static function getdata($page,$seacrh){
+    public static function getdata($page,$type,$seacrh){
         $data = AkunModel::select();
         if ($seacrh!=""){
             $data->where("username","like","%$seacrh%");
