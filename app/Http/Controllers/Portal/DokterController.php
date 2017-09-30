@@ -71,6 +71,7 @@ class DokterController extends PortalController {
                 $akun->nomor_tlp = $request->nomor_tlp;
                 $akun->password = bcrypt($request->password);
                 $akun->apps = 2;
+                $akun->verification = 2;
             $akun->save();
         }else{
             $check->where("username",$request->id)->update([
