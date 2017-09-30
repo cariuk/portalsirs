@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'],function() {
     Route::get('portal/dokter', 'Portal\DokterController@index')->name('dokter');
     Route::get('portal/dokter/loaddata', 'Portal\DokterController@loaddata');
     Route::get('portal/dokter/akun', 'Portal\DokterController@akun')->name('dokter-akun');
-    Route::get('portal/dokter/akun/simpan', 'Portal\DokterController@store_akun')->name('dokter-akun-simpan');
+    Route::post('portal/dokter/akun/simpan', 'Portal\DokterController@store_akun')->name('dokter-akun-simpan');
 
     Route::get('portal/jadwal', 'Portal\JadwalPraktekController@index')->name('jadwal');
 });

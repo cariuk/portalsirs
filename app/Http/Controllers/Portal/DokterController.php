@@ -25,7 +25,7 @@ class DokterController extends PortalController {
 
     public function akun(Request $request){
 
-        $akun = AkunModel::where("username",$request->id)->where("type",2)->first();
+        $akun = AkunModel::where("username",$request->id)->where("apps",2)->first();
         return response()->json([
             "title" => '<i class="icon-user-lock"></i> &nbsp;Akun',
             "body"  =>  view('portal.dokter.akun',compact('akun','request'))->render()
@@ -70,6 +70,7 @@ class DokterController extends PortalController {
                 $akun->email = $request->email;
                 $akun->nomor_tlp = $request->nomor_tlp;
                 $akun->password = bcrypt($request->password);
+                $akun->apps = 2;
             $akun->save();
         }else{
             $check->where("username",$request->id)->update([

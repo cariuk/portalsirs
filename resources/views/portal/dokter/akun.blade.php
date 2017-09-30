@@ -1,9 +1,10 @@
-<form id="simpan" action="#" method="post">
+<form id="simpan" action="{{route('dokter-akun-simpan')}}" method="post">
     <div class="form-group">
         <div class="row">
             <div class="col-sm-6">
                 <label>Email</label>
                 {{csrf_field()}}
+                <input name="id" type="text" value="{{$request->id}}" class="form-control hidden" readonly>
                 <input name="email" type="text" placeholder="eugene@kopyov.com" value="{{$akun==null?'':$akun->email}}" class="form-control" required>
             </div>
 
@@ -107,7 +108,7 @@
                     },
                     function(isConfirm){
                         if (isConfirm) {
-                            var  $form = $("#createjasa");
+                            var  $form = $("#simpan");
                             formData = new FormData(),
                                 params   = $form.serializeArray();
                             $.each(params, function(i, val) {
