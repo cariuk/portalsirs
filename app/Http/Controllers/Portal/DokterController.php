@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Portal;
 use App\Http\Controllers\PortalController;
 use App\Model\AppsOnline\AkunModel;
 use App\Model\SimPel\DokterModel;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class DokterController extends PortalController {
@@ -32,13 +33,50 @@ class DokterController extends PortalController {
     }
 
     public function store_akun(Request $request){
+        $validator = Validator::make(
+            $request->all(), [
+            'id'=>'required',
+            'email'=>'required|email',
+            'nomor_tlp' => 'required',
+            'password'=>'required|min:6|confirmed:password_confirmation',
+            'password_confirmation'=>'required',
+
+        ], [
+                'id.required' => 'id harus diisi',
+                'email.required' => 'Email harus diisi',
+                'nomor_tlp.required' => 'Nomor Telepon Harus diisi',
+                'password.required' => 'Password Harus Diisi',
+                'password.min' => 'Password Minimal 6 Karakter',
+                'password.confirmed' => 'Password Konfirmasi Tidak Sama',
+                'password_confirmation.required' => 'Password Konfirmasi Harus Diisi',
+            ]
+        );
+
+        if ($validator->fails()){
+            return response()->json([
+                "diagnostic" => $this->diagnostic(
+                    microtime(true),
+                    "Data Tidak Lengkap",
+                    422
+                )
+            ]);
+        }
+
         $check = AkunModel::where("username",$request->id)->first();
         if ($check==null){
             //insert
-
+            $akun = new AkunModel();
+                $akun->username = $request->id;
+                $akun->email = $request->email;
+                $akun->nomor_tlp = $request->nomor_tlp;
+                $akun->password = bcrypt($request->password);
+            $akun->save();
         }else{
-            //update
-
+            $check->where("username",$request->id)->update([
+                "email" =>  $request->email,
+                "nomor_tlp" => $request->nomor_tlp,
+                "password" => bcrypt($request->password)
+            ]);
         }
     }
 }
