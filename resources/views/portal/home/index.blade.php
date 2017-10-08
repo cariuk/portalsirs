@@ -1,19 +1,28 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+<div class="panel panel-flat">
+    <div class="panel-heading">
+        <h6 class="panel-title"></h6>
+        <div class="heading-elements">
+        </div>
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a></div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <div class="content-group">
+                    <h5 class="text-semibold no-margin"><i class="icon-users position-left text-slate"></i> {{$data->TotalMember}}</h5>
+                    <span class="text-muted text-size-small">Akun Registrasi</span>
+                </div>
+            </div>
 
-                    You are logged in!
+            <div class="col-md-6">
+                <div class="content-group">
+                    <h5 class="text-semibold no-margin"><i class="icon-calendar52 position-left text-slate"></i> {{$data->TotalPendaftarRajal}}</h5>
+                    <span class="text-muted text-size-small">Pendaftar Rawat Jalan</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="row">
+
 </div>

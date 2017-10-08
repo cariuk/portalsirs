@@ -33,4 +33,30 @@ class DokterModel extends SimPelConf {
         });
         return $data->paginate(10, ['*'], 'page', $page==null?1:$page);
     }
+
+    public static function getDetail($filter){
+        $data = DokterModel::select(
+            "master.pegawai.NIP",
+            "master.dokter.ID as ID_DOKTER",
+            "master.pegawai.GELAR_DEPAN",
+            "master.pegawai.NAMA",
+            "master.pegawai.GELAR_BELAKANG",
+            "master.pegawai.TEMPAT_LAHIR",
+            "master.pegawai.TANGGAL_LAHIR",
+            "master.pegawai.ALAMAT",
+            "master.referensi.ID as SMF",
+            "master.referensi.DESKRIPSI as SPESIALIS"
+        );
+        $data->join("master.dokter","master.dokter.nip","=","master.pegawai.nip");
+        $data->join('master.referensi', function($join){
+            $join->on('master.referensi.ID', '=', 'master.pegawai.SMF')
+                ->where("master.referensi.jenis", "=", "26");
+        });
+        $data->where("master.pegawai.STATUS","=","1");
+        $data->where("master.dokter.ID","=",$filter["id"]);
+        if ($filter["smf"]!=null){
+            $data->where("master.pegawai.SMF","=",$filter["smf"]);
+        }
+        return $data->first();
+    }
 }

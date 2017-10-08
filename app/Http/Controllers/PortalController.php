@@ -9,7 +9,7 @@ class PortalController extends Controller{
     protected $data;
     function index(Request $request){
         $data=$this->data;
-        $content = $content = view('portal.'.$this->module.'.index',compact('data'))->render();
+        $content = view('portal.'.$this->module.'.index',compact('data'))->render();
         $module = ucfirst($this->module);
         if ($request->ajax()||$request->wantsJson()){
             return response()->json([
