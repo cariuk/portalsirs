@@ -24,7 +24,6 @@ class DokterController extends PortalController {
     }
 
     public function akun(Request $request){
-
         $akun = AkunModel::where("username",$request->id)->where("apps",2)->first();
         return response()->json([
             "title" => '<i class="icon-user-lock"></i> &nbsp;Akun',
@@ -36,6 +35,7 @@ class DokterController extends PortalController {
         $validator = Validator::make(
             $request->all(), [
             'id'=>'required',
+            'username'=>'required|min:5|unique:users|regex:/^[a-zA-Z0-9\-\s]+$/|alpha_dash',
             'email'=>'required|email',
             'nomor_tlp' => 'required',
             'password'=>'required|min:6|confirmed:password_confirmation',
@@ -43,6 +43,9 @@ class DokterController extends PortalController {
 
         ], [
                 'id.required' => 'id harus diisi',
+                'username.required' => 'Username Harus Diisi',
+                'username.unique' => 'Username Sudah Terdaftar',
+                'username.min' => 'Username Minimal 5 Karakter',
                 'email.required' => 'Email harus diisi',
                 'nomor_tlp.required' => 'Nomor Telepon Harus diisi',
                 'password.required' => 'Password Harus Diisi',

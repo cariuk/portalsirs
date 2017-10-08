@@ -23,6 +23,7 @@ class AkunModel extends Model{
 
     public static function getdata($page,$type,$seacrh){
         $data = AkunModel::select();
+        $data->where("apps",1);
         if ($seacrh!=""){
             $data->where("username","like","%$seacrh%");
             $data->orwhere("email","like","$seacrh");

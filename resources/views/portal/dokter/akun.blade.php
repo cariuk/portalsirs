@@ -1,5 +1,9 @@
 <form id="simpan" action="{{route('dokter-akun-simpan')}}" method="post">
     <div class="form-group">
+        <div class="col-sm-6">
+            <label>Username</label>
+            <input name="username" type="text" value="{{$akun==null?'':$akun->username}}" class="form-control" required>
+        </div>
         <div class="row">
             <div class="col-sm-6">
                 <label>Email</label>
