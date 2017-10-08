@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Portal;
 
 use App\Http\Controllers\PortalController;
 use App\Model\AppsOnline\AkunModel;
+use App\Model\AppsOnline\MDokterModel;
 use App\Model\SimPel\DokterModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class DokterController extends PortalController {
     }
 
     public function akun(Request $request){
-        $akun = AkunModel::where("username",$request->id)->where("apps",2)->first();
+        $akun = AkunModel::where("iddokter",$request->id)->join("dokter","user_id","id")->where("apps",2)->first();
         return response()->json([
             "title" => '<i class="icon-user-lock"></i> &nbsp;Akun',
             "body"  =>  view('portal.dokter.akun',compact('akun','request'))->render()
@@ -35,7 +36,7 @@ class DokterController extends PortalController {
         $validator = Validator::make(
             $request->all(), [
             'id'=>'required',
-            'username'=>'required|min:5|unique:users|regex:/^[a-zA-Z0-9\-\s]+$/|alpha_dash',
+            'username'=>'required|min:5',
             'email'=>'required|email',
             'nomor_tlp' => 'required',
             'password'=>'required|min:6|confirmed:password_confirmation',
@@ -44,7 +45,6 @@ class DokterController extends PortalController {
         ], [
                 'id.required' => 'id harus diisi',
                 'username.required' => 'Username Harus Diisi',
-                'username.unique' => 'Username Sudah Terdaftar',
                 'username.min' => 'Username Minimal 5 Karakter',
                 'email.required' => 'Email harus diisi',
                 'nomor_tlp.required' => 'Nomor Telepon Harus diisi',
@@ -59,29 +59,41 @@ class DokterController extends PortalController {
             return response()->json([
                 "diagnostic" => $this->diagnostic(
                     microtime(true),
-                    "Data Tidak Lengkap",
+                    $validator->messages()->first(),
                     422
                 )
             ]);
         }
 
-        $check = AkunModel::where("username",$request->id)->first();
+        $check = MDokterModel::where("iddokter",$request->id)->first();
         if ($check==null){
             //insert
             $akun = new AkunModel();
-                $akun->username = $request->id;
+                $akun->username = $request->username;
                 $akun->email = $request->email;
                 $akun->nomor_tlp = $request->nomor_tlp;
                 $akun->password = bcrypt($request->password);
                 $akun->apps = 2;
                 $akun->verification = 2;
             $akun->save();
+
+            $dokter = new MDokterModel();
+                $dokter->user_id = $akun->id;
+                $dokter->iddokter = $request->id;
+            $dokter->save();
         }else{
-            $check->where("username",$request->id)->update([
+            AkunModel::where("id",$check->user_id)->update([
+                "username" => $request->username,
                 "email" =>  $request->email,
                 "nomor_tlp" => $request->nomor_tlp,
                 "password" => bcrypt($request->password)
             ]);
         }
+        return response()->json([
+            "diagnostic" => $this->diagnostic(
+                microtime(true),
+                "Data Akun Telah Tersimpan"
+            )
+        ]);
     }
 }

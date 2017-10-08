@@ -1,8 +1,10 @@
 <form id="simpan" action="{{route('dokter-akun-simpan')}}" method="post">
     <div class="form-group">
-        <div class="col-sm-6">
-            <label>Username</label>
-            <input name="username" type="text" value="{{$akun==null?'':$akun->username}}" class="form-control" required>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Username</label>
+                <input name="username" type="text" value="{{$akun==null?'':$akun->username}}" class="form-control" required>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
@@ -32,7 +34,7 @@
         </div>
         </div>
         <div class="modal-footer">
-        <button class="btn btn-link" data-dismiss="modal"><i class="icon-cross"></i> Close</button>
+        <button id="close" class="btn btn-link" data-dismiss="modal"><i class="icon-cross"></i> Close</button>
         <button class="btn btn-primary"><i class="icon-check"></i> Simpan</button>
     </div>
 </form>
@@ -130,18 +132,11 @@
                                 dataType        : "json",
                                 success	: function(data){
                                     if (data.diagnostic.status==200){
-                                        $("#pencarian-pasien").addClass("animated zoomOutUp").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
-                                            $(this).addClass("hide");
-                                            $("#pengimputan-jasa").removeClass("hide");
-                                            $("#buat").addClass("hide");
-                                            $("#selesai").removeClass("hide");
-                                            $("#pengimputan-jasa").addClass("animated zoomIn");
-                                            $("input[name=id]").val(data.response.id);
-                                        });
+                                        $("#close").trigger("click");
                                     }else{
                                         swal({
                                             title: "Gagal!",
-                                            text: obj.message?obj.message:"Tidak Dapat Membuat Jasa",
+                                            text: data.diagnostic.description,
                                             confirmButtonColor: "#EF5350",
                                             type: "error"
                                         });
