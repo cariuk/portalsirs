@@ -11,5 +11,8 @@ class NotifModel extends Model{
     protected $hidden = [
         'created_at','updated_at'
     ];
-
+    public static function getdata($page,$seacrh){
+        $data = NotifModel::select()->where("type","Broadcast");
+        return $data->paginate(10, ['*'], 'page', $page==null?1:$page);
+    }
 }
