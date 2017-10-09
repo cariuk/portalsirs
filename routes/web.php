@@ -23,6 +23,11 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth'],function() {
     Route::get('portal/home', 'Portal\HomeController@index')->name('home');
 
+    Route::get('portal/notif', 'Portal\NotifController@index')->name('notif');
+    Route::get('portal/notif/loaddata', 'Portal\NotifController@loaddata')->name('notif-load');
+    Route::get('portal/notif/form', 'Portal\NotifController@akun')->name('notif-akun');
+    Route::post('portal/notif/form/simpan', 'Portal\NotifController@store_akun')->name('notif-akun-simpan');
+
     Route::get('portal/akun', 'Portal\AkunController@index')->name('akun');
     Route::get('portal/akun/loaddata', 'Portal\AkunController@loaddata');
 

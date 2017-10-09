@@ -23,6 +23,7 @@
                 <!-- Main -->
                 <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
                 <li><a id="home" href="{{url('portal/home')}}" class="navigator"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                <li><a id="notif" href="{{url('portal/home')}}" class="navigator"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
             </ul>
             <ul class="navigation navigation-main navigation-accordion">
                 <!-- My Ananda Hospital -->
