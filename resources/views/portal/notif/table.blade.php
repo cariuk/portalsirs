@@ -5,14 +5,13 @@
         <thead>
         <tr class="border-double">
             <th width="80px">ID</th>
-            <th width="400px">Nama Dokter</th>
-            <th width="150px">Spesialis</th>
+            <th width="400px">Type</th>
+            <th width="150px">Message</th>
             <th width="100px">Status</th>
             <th>#</th>
         </tr>
         </thead>
         <tbody class="datalist">
-
         </tbody>
     </table>
 </div>
@@ -29,7 +28,7 @@
         $pagination.twbsPagination(defaultOpts);
         function loaddata(page,cari){
             $.ajax({
-                url: '{{url('portal/dokter/loaddata')}}',
+                url: '{{url('portal/'.$module.'/loaddata')}}',
                 data: {
                     "page":page,
                     "cari":cari
@@ -43,7 +42,7 @@
         }
         function loadpage(cari){
             $.ajax({
-                url: '{{url('portal/dokter/loaddata')}}',
+                url: '{{url('portal/'.$module.'/loaddata')}}',
                 data: {
                     "cari":cari
                 },
@@ -53,10 +52,9 @@
                     if ($pagination.data("twbs-pagination")) {
                         $pagination.twbsPagination('destroy');
                     }
-
                     $pagination.twbsPagination($.extend({}, defaultOpts, {
                         startPage: 1,
-                        totalPages: response.total_page,
+                        totalPages: response.total_page==0?1:response.total_page,
                         visiblePages: 8,
                         onPageClick: function (event, page) {
                             loaddata(page,cari);

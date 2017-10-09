@@ -6,6 +6,6 @@
         <a class="heading-elements-toggle"><i class="icon-menu"></i></a></div>
 
     <div class="panel-body">
-        @include("portal.dokter.table")
+        @include("portal.".$module.".table")
     </div>
 </div>
