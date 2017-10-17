@@ -10,6 +10,12 @@ class NotifController extends PortalController{
     public function __construct(){
         $this->module = "notif";
     }
+    public function loadform(Request $request){
+        $view = view('portal.'.$this->module.'.form',compact('data'))->render();
+        return response()->json([
+            "html" => $view
+        ]);
+    }
 
     public function loaddata(Request $request){
         $data = NotifModel::getdata($request->input('page'),1,$request->input('cari'));

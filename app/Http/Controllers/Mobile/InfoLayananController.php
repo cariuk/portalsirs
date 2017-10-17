@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Portal;
+namespace App\Http\Controllers\Mobile;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NotifikasiController extends Controller
+class InfoLayananController extends Controller
 {
     //
 }
