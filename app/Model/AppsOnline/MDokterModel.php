@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MDokterModel extends Model{
     protected $table = 'dokter';
     public $incrementing = false;
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'user_id';
     protected $hidden = [
         'created_at','updated_at'
     ];
