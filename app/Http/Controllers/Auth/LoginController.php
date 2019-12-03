@@ -71,11 +71,11 @@ class LoginController extends Controller{
             if ($user==null){
                 $new = new User();
                     $new->username = $request->username;
-                    $new->token = $getResponse->access_token;
+                    $new->token = $getResponse->response->accessToken;
                 $new->save();
             }else{
                 User::where('username', '=', $request->username)->update([
-                    "token" => $getResponse->access_token,
+                    "token" => $getResponse->response->accessToken
                 ]);
                 $user = User::where('username', $request->username)->first();
             }
