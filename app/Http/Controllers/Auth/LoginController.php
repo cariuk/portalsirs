@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -50,17 +53,17 @@ class LoginController extends Controller{
         try {
             $getResponse = $client->request(
                 'POST',
-                url(ENV("SIRSPRO")."/api/token/login"), [
+                url(ENV("SIRSPRO") . "/api/token/login"), [
                     'headers' => [
                         'Accept' => 'application/json',
-                    ],RequestOptions::JSON => [
+                    ], RequestOptions::JSON => [
                         "username" => $request->username,
                         "password" => $request->password
                     ]
                 ]
             );
             $getResponse = json_decode($getResponse->getBody());
-            if ($getResponse == null){
+            if ($getResponse == null) {
                 return response()->json([
                     "status" => 422,
                     "message" => "",
@@ -68,12 +71,12 @@ class LoginController extends Controller{
             }
 
             $user = User::where('username', '=', $request->username)->first();
-            if ($user==null){
+            if ($user == null) {
                 $new = new User();
-                    $new->username = $request->username;
-                    $new->token = $getResponse->response->accessToken;
+                $new->username = $request->username;
+                $new->token = $getResponse->response->accessToken;
                 $new->save();
-            }else{
+            } else {
                 User::where('username', '=', $request->username)->update([
                     "token" => $getResponse->response->accessToken
                 ]);
@@ -92,6 +95,21 @@ class LoginController extends Controller{
                     ]
                 ]
             ]);
+        }catch (ServerException $exception){
+            return response()->json([
+                "status" => $exception->getCode(),
+                "message" =>$exception->getResponse()
+            ], $exception->getCode());
+        }catch (ClientException $exception){
+            return response()->json([
+                "status" => $exception->getCode(),
+                "message" => $exception->getResponse()
+            ], $exception->getCode());
+        }catch (BadResponseException $exception){
+            return response()->json([
+                "status" => $exception->getCode(),
+                "message" => $exception->getResponse()
+            ], $exception->getCode());
         } catch (\Exception $exception) {
             return response()->json([
                 "status" => 501,
