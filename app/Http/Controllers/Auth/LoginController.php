@@ -84,7 +84,7 @@ class LoginController extends Controller{
 
             return response()->json([
                 "status" => 200,
-                "message" => "Data Berhasil Tersimpan",
+                "message" => "Berhasil Login",
                 "callback" => [
                     "html" => [],
                     "action" => [
