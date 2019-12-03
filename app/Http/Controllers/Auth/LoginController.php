@@ -76,7 +76,6 @@ class LoginController extends Controller{
             }else{
                 User::where('username', '=', $request->username)->update([
                     "token" => $getResponse->access_token,
-                    "refresh_token" => $getResponse->refresh_token
                 ]);
                 $user = User::where('username', $request->username)->first();
             }
