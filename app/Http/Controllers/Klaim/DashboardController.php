@@ -22,6 +22,12 @@ class DashboardController extends IndexController{
             "tanggal" => $request->tanggal, /*Y-m-d*/
         ]);
 
+        if ($result->response==null){
+            return response()->json([
+                "status" => 422,
+                "message" => "Maaf Tidak Ada Response Dari Server"
+            ],422);
+        }
         return response()->json([
             "status" => 200,
             "response" => $result->response->response
