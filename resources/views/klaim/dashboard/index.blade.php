@@ -1,15 +1,17 @@
 <div class="panel panel-flat no-margin">
     <div class="panel-body" style="padding: 5px;">
         <form id="filter{{$module}}">
-            <div class="col-xs-4">
-                <div class="col-lg-12">
-                    <input name="norm" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="NORM Pasien" value="" />
-                </div>
+            <div class="col-xs-2 no-padding">
+                <select name="pelayanan" class="select2">
+                    <option value="2">Rawat Jalan</option>
+                    <option value="1">Rawat Inap</option>
+                </select>
             </div>
-            <div class="col-xs-6">
-                <div class="col-lg-12">
-                    <input name="q" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="Nama Pasien / No SEP" value="" />
-                </div>
+            <div class="col-xs-4">
+                <input name="norm" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="NORM Pasien" value="" />
+            </div>
+            <div class="col-xs-6 no-padding">
+                <input name="q" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="Nama Pasien / No SEP" value="" />
             </div>
         </form>
 
