@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Model\User;
+use App\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -50,10 +50,9 @@ class LoginController extends Controller{
         try {
             $getResponse = $client->request(
                 'POST',
-                url(ENV("SIRSPRO")."/api/token"), [
+                url(ENV("SIRSPRO")."/api/token/login"), [
                     'headers' => [
                         'Accept' => 'application/json',
-                        'PROVIDER' => 'usersiap',
                     ],RequestOptions::JSON => [
                         "username" => $request->username,
                         "password" => $request->password
