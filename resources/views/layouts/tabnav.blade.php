@@ -1,6 +1,6 @@
 <li id="menu-{{$module}}" class="contextmenu">
     <a id="tab-{{$module}}{{isset($data)?$data->peg_id:""}}" href="#left-icon-tab-{{$module}}{{isset($data)?$data->peg_id:""}}" data-toggle="tab" aria-expanded="true">
-        <i class="{{isset($data)?($data->peg_jenis_kelamin=="L"?$icon[0]:$icon[1]):$icon}} position-left"></i> {{$module}} {{isset($data)?$data->peg_id:""}}
+        <i class="{{isset($data)?($data->peg_jenis_kelamin=="L"?$icon[0]:$icon[1]):$icon}} position-left"></i> {{strtoupper($module)}} {{isset($data)?$data->peg_id:""}}
         <span class="close close-tabs"><i class="icon-cancel-circle2"></i></span>
     </a>
 </li>

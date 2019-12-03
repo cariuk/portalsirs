@@ -4,16 +4,12 @@
             <li><a id="home" href="{{route('main')}}" class="menunavigator">
                     <i class="icon-home2"></i> <span>Beranda</span></a>
             </li>
-            <li><a id="master" href="{{route('main.load.module',"master")}}" class="menunavigator">
-                    <i class="icon-database2"></i> <span>Data Master</span></a>
+            <li><a id="KLAIM" href="{{route('main.load.module',"klaim")}}" class="menunavigator">
+                    <i class="icon-database2"></i> <span>Data Klaim BPJS</span></a>
             </li>
-            {{--<li><a id="LAPORAN" href="{{route('main.load',"laporan")}}" class="menunavigator">--}}
-                    {{--<i class="icon-file-eye"></i> <span>Laporan</span></a>--}}
-            {{--</li>--}}
         </ul>
     </div>
 </div>
-
 <script>
     $(document).ready(function () {
         $(".menunavigator").click(function () {

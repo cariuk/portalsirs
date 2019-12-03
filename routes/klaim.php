@@ -11,4 +11,17 @@
 |
 */
 
-Route::group(['prefix' => 'klaim'], function () {});
+Route::group(['prefix' => 'klaim'], function () {
+//    Route::group(['prefix' => 'kategori'], function () {
+//        Route::get('/', 'KategoriController@index')->name('kategori');
+//        Route::get('/loaddata', 'KategoriController@getData')->name('kategori.loaddata');
+//    });
+//
+//    Route::group(['prefix' => 'lemari'], function () {
+//        Route::get('/', 'LemariController@index')->name('lemari');
+//    });
+//
+//    Route::group(['prefix' => 'rak'], function () {
+//        Route::get('/', 'RakController@index')->name('rak');
+//    });
+});

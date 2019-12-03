@@ -158,15 +158,15 @@
             {{--</script>--}}
         </div>
         <ul class="nav navbar-nav no-margin">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <i class="icon-git-compare"></i>
-                    <span class="visible-xs-inline-block position-right">Aktivitas</span>
-                    <span class="badge bg-warning-400">0</span>
-                </a>
-                <div class="dropdown-menu dropdown-content">
-                </div>
-            </li>
+            {{--<li class="dropdown">--}}
+                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">--}}
+                    {{--<i class="icon-git-compare"></i>--}}
+                    {{--<span class="visible-xs-inline-block position-right">Aktivitas</span>--}}
+                    {{--<span class="badge bg-warning-400">0</span>--}}
+                {{--</a>--}}
+                {{--<div class="dropdown-menu dropdown-content">--}}
+                {{--</div>--}}
+            {{--</li>--}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown dropdown-user">
