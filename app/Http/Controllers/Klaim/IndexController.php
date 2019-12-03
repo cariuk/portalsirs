@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller{
-    public $pathview,$module,$data;
+    public $sirspro,$pathview,$module,$data;
 
     public function __construct(){
         $this->pathview = "klaim.";
+        $this->sirspro = env("SIRSPRO");
     }
 
     public function index(Request $request){
