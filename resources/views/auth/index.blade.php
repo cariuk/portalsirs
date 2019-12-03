@@ -15,19 +15,16 @@
     <link href="{{asset('assets/css/colors.min.css')}}" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
     <!-- Core JS files -->
-    <script type="text/javascript" src="{{asset('assets/js/plugins/loaders/pace.min.js')}}"></script>
+    {{--<script type="text/javascript" src="{{asset('assets/js/plugins/loaders/pace.min.js')}}"></script>--}}
     <script type="text/javascript" src="{{asset('assets/js/core/libraries/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/core/libraries/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/loaders/blockui.min.js')}}"></script>
-    <!-- /core JS files -->
+    {{--<!-- /core JS files -->--}}
     <script type="text/javascript" src="{{asset('assets/js/plugins/ui/nicescroll.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/notifications/pnotify.min.js')}}"></script>
-    <!-- Theme JS files -->
-    <script type="text/javascript" src="{{asset('assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
+    {{--<!-- Theme JS files -->--}}
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/validation/validate.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/general.js')}}?_{{time()}}"></script>
-    <script type="text/javascript" src="{{asset('assets/js/pages/login.js')}}"></script>
     <!-- /theme JS files -->
 </head>
 <body class="layout-boxed">

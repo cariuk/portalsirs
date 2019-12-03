@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ENV("APP_NAME")}}</title>
-    <base href="{{asset('/')}}">
     <!-- Global stylesheets -->
     <link href="{{asset('assets/css/font/font.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/icons/icomoon/styles.css')}}" rel="stylesheet" type="text/css">
@@ -17,8 +16,7 @@
     <link href="{{asset('assets/css/colors.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/extras/animate.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/datetimepicker.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('assets/js/plugins/pickers/clockpicker/dist/bootstrap-clockpicker.min.css')}}" rel="stylesheet"
-          type="text/css">
+    <link href="{{asset('assets/js/plugins/pickers/clockpicker/dist/bootstrap-clockpicker.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/js/plugins/alert/jquery.alerts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/js/plugins/editors/summernote/summernote.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/scrollbar.css')}}" rel="stylesheet" type="text/css">
@@ -34,16 +32,14 @@
     <script type="text/javascript" src="{{asset('assets/js/core/libraries/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/loaders/blockui.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/ui/dialogextend/jquery.dialogextend.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/pagination/twbs-pagination/jquery.twbsPagination.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/pagination/twbs-pagination/jquery.twbsPagination.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/ui/jquery.nicescroll.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/floatThead/jquery.floatThead.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/ui/moment/moment.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/clipboard/dist/clipboard.min.js')}}"></script>
 
     <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/jquery.signature.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/editors/js-lib/jquery.ui.touch-punch.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/jquery.ui.touch-punch.min.js')}}"></script>
     <!--[if IE]>
     <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/excanvas.js')}}"></script>
     <![endif]-->
@@ -54,29 +50,24 @@
     <script type="text/javascript" src="{{asset('assets/js/plugins/alert/jquery.alerts.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/forms/inputs/jquery.inputmask.bundle.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/forms/inputs/typeahead/typeahead.bundle.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/forms/inputs/jquery.inputmask.bundle.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/forms/inputs/typeahead/typeahead.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/styling/switch.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/validation/validate.min.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/forms/validation/jquery-validate.bootstrap-tooltip.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/forms/validation/jquery-validate.bootstrap-tooltip.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/selects/select2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/inputs/autosize.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/tags/tagsinput.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/inputs/formatter.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/anytime.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/daterangepicker.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/pickers/clockpicker/dist/bootstrap-clockpicker.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/clockpicker/dist/bootstrap-clockpicker.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/pickadate/picker.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/pickadate/picker.date.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/pickadate/picker.time.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/pickadate/legacy.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('assets/js/plugins/pickers/datetimepicker/datetimepicker.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/datetimepicker/datetimepicker.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/datetimepicker/locale_id.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/trees/fancytree_all.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/trees/fancytree_childcounter.js')}}"></script>
