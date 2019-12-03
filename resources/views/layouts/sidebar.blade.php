@@ -4,7 +4,7 @@
             <li><a id="home" href="{{route('main')}}" class="menunavigator">
                     <i class="icon-home2"></i> <span>Beranda</span></a>
             </li>
-            <li><a id="KLAIM" href="{{route('main.load.module',"klaim")}}" class="menunavigator">
+            <li><a id="klaim" href="{{route('main.load.module',"klaim")}}" class="menunavigator">
                     <i class="icon-database2"></i> <span>Data Klaim BPJS</span></a>
             </li>
         </ul>

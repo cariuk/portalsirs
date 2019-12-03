@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'klaim'], function () {
+Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
     Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::get('/loaddata', 'DashboardController@getData')->name('dashboard.loaddata');

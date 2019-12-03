@@ -28,9 +28,7 @@ class MainController extends IndexController{
     function loadModul($module,Request $request){
         $icon = $request->icon;
         $tabcontent = view($module.".index",compact('module'))->render();
-        $module = strtoupper($module);
         $tabnav = view('layouts.tabnav',compact('module','icon'))->render();
-
         return response()->json([
             "status" => 200,
             "tabnav" => $tabnav,

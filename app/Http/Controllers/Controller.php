@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    public function toBridging($method,$uri,$request=[]){
+    public function toSIRSPRO($method,$uri,$request=[]){
         try{
             $client = new Client();
             $getResponse = $client->request(
@@ -19,7 +22,6 @@ class Controller extends BaseController {
                     'headers' => [
                         'Accept' => 'application/json',
                         'Authorization' => "Bearer ".Auth::user()->token,
-                        'PROVIDER' => 'usersiap',
                     ],RequestOptions::JSON => $request
                 ]
             );

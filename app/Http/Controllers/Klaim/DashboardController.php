@@ -13,8 +13,9 @@ class DashboardController extends IndexController{
 
     public function getData(Request $request){
         extract(get_object_vars($this));
-        $result = (object) $this->toSIRSPRO("GET","/klaim/data?",[
+        $result = (object) $this->toSIRSPRO("GET","klaim/data?",[
             "page" => $request->page,
+            "q" => $request->q,
             "pelayanan" => $request->pelayanan, /*Rawat Inap = 1 ,  Rawat Jalan = 2*/
             "sep" => $request->sep,
             "norm" => $request->norm,
@@ -23,15 +24,7 @@ class DashboardController extends IndexController{
 
         return response()->json([
             "status" => 200,
-            "response" => [
-                "data" =>$result->response->data,
-                "current_page" => $result->response->current_page,
-                "from" => $result->response->from,
-                "last_page" => $result->response->last_page,
-                "per_page" => $result->response->per_page,
-                "to" => $result->response->to,
-                "total" => $result->response->total
-            ]
+            "response" => $result->response->response
         ]);
     }
 }
