@@ -37,7 +37,7 @@ class DashboardController extends IndexController{
     }
 
     public function getTagihan(Request $request){
-        $result = (object) $this->toSIRSPRO("POST","report/request",[
+        $post = [
             "NAME" => $request->input("name"),
             "PARAMETER" => $request->input(),
             "TYPE" => $request->input("type"),
@@ -45,10 +45,11 @@ class DashboardController extends IndexController{
             "PRINT_NAME" => "report",
             "COPIES" => 1,
             "REQUEST_FOR_PRINT" => false,
-        ]);
+        ];
+        $result = (object) $this->toSIRSPRO("POST","report/request",$post);
         return response()->json([
             "status" => 200,
-            "response" => $result->response->response
+            "url" => $result->response->response
         ]);
         $url = $result->response->response;
 

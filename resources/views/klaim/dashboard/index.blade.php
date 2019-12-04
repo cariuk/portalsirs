@@ -57,23 +57,10 @@
 
     var rincian{{$module}} = function (el) {
         var data = $(el).data();
-        console.log("{{route('dashboard.tagihan')}}");
-        $.ajax({
-            url:"{{route('dashboard.tagihan')}}",
-            data: data,
-            type: "GET",
-            dataType: "json",
-            success: function (response) {
-                window.open(response.response, '_blank');
-            },
-            beforeSend: function () {},
-            complete: function () {},
-            error: function (xhr, thrownError, err) {
-                if (xhr.responseJSON.status == 422) {
-                    generalNotify('', xhr.responseJSON.message, 'danger');
-                }
-            }
-        });
+        requestPrint(el,{
+            "PTAGIHAN" : data.tagihan,
+            "PSTATUS" : 1
+        },"{{route('dashboard.tagihan')}}",false);
     };
 
     $(document).ready(function () {
@@ -115,7 +102,7 @@
                             '</button>'+
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
                                     '<li>' +
-                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-report="pembayaran.CetakRincianPasien" data-type="Pdf" data-ext="pdf" data-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';
