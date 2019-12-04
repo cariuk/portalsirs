@@ -8,11 +8,11 @@
                 </select>
             </div>
             <div class="col-xs-2">
-                <input name="tanggal" datepicker="datetime"
-                       date-format="YYYY-MM-DD" type="text" class="form-control input-xs text-center"
-                       placeholder="[Tgl. SEP (thn/bln/tgl)]">
-                <div class="form-control-feedback">
-                    <i class="icon-calendar2 text-size-base"></i>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                    <input name="tanggalPulang" datepicker="datetime"
+                           date-format="YYYY-MM-DD" type="text" class="form-control input-xs text-center"
+                           placeholder="[Tgl. Plng (thn/bln/tgl)]">
                 </div>
             </div>
             <div class="col-xs-2">
@@ -23,7 +23,7 @@
             </div>
             <div class="col-xs-2 text-right no-padding">
                 <button type="button" class="btn btn-info btn-labeled btn-xs" onclick="loaddata{{$module}}()"><b><i class="icon-filter4"></i></b> Filter</button>
-                <button type="reset" class="btn btn-info btn-labeled btn-xs"><b><i class="icon-eraser2"></i></b> Clear</button>
+                <button type="reset" class="btn btn-info btn-labeled btn-xs" onmouseup="loaddata{{$module}}()"><b><i class="icon-eraser2"></i></b> Clear</button>
             </div>
         </form>
 
