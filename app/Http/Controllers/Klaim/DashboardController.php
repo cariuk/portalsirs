@@ -62,4 +62,28 @@ class DashboardController extends IndexController{
             "url" => route("reports",["tagihan",Crypt::encryptString($filename)])
         ]);
     }
+
+    public function getHasilLaboratorium(Request $request){
+        $post = [
+            "NAME" => $request->input("NAME"),
+            "PARAMETER" => $request->input("PARAMETER"),
+            "TYPE" => $request->input("TYPE"),
+            "EXT" => $request->input("EXT"),
+            "PRINT_NAME" => "report",
+            "COPIES" => 1,
+            "REQUEST_FOR_PRINT" => false,
+        ];
+        $result = (object) $this->toSIRSPRO("POST","report/request",$post);
+        $url = $result->response->response;
+
+        $guzzle = new Client();
+        $response = $guzzle->get($url);
+        $filename = time().'.pdf';
+        Storage::put('public/tagihan/'.$filename, $response->getBody());
+
+        return response()->json([
+            "status" => 200,
+            "url" => route("reports",["tagihan",Crypt::encryptString($filename)])
+        ]);
+    }
 }
