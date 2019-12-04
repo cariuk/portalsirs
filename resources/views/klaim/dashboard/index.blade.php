@@ -56,11 +56,30 @@
     pagination{{$module}}.twbsPagination(defaultOpts);
 
     var rincian{{$module}} = function (el) {
-        var data = $(el).data();
-        requestPrint(el,{
-            "PTAGIHAN" : data.tagihan,
-            "PSTATUS" : 1
-        },"{{route('dashboard.tagihan')}}",false);
+
+        var request = {
+            NAME: $(el).attr("report-name"),
+            PARAMETER: {
+                "PTAGIHAN" : $(el).data("tagihan"),
+                "PSTATUS" : 1
+            },
+            TYPE: print ? $(el).attr("report-type") : "Pdf",
+            EXT: print ? $(el).attr("report-ext") : "pdf",
+            PRINT_NAME: $(el).attr("print-name"),
+            COPIES: $(el).attr("print-copies"),
+            REQUEST_FOR_PRINT: false
+        };
+        $.ajax({
+            url: "{{route('dashboard.tagihan')}}",
+            data: request,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                window.open(response.url, '_blank');
+            },
+            beforeSend: function () {},
+            complete: function () {},
+        });
     };
 
     $(document).ready(function () {

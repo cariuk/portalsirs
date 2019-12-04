@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Klaim;
 
 use App\Http\Controllers\Controller;
+use Facade\FlareClient\Report;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends IndexController{
     public function __construct(){
@@ -47,12 +50,16 @@ class DashboardController extends IndexController{
             "REQUEST_FOR_PRINT" => false,
         ];
         $result = (object) $this->toSIRSPRO("POST","report/request",$post);
-        return response()->json([
-            "post" => $post,
-            "status" => 200,
-            "url" => $result->response->response
-        ]);
         $url = $result->response->response;
-        return $url;
+
+        $guzzle = new Client();
+        $response = $guzzle->get($url);
+        $filename = time().'.pdf';
+        Storage::put('public/tagihan/'.$filename, $response->getBody());
+
+        return response()->json([
+            "status" => 200,
+            "url" => route("reports",["tagihan",Crypt::encryptString($filename)])
+        ]);
     }
 }
