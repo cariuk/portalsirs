@@ -40,7 +40,7 @@
             @yield('content')
             <!-- Footer -->
                 <div class="footer text-black">
-                    © {{date("Y")}} {{ENV("APP_NAME")}}
+                    © {{date("Y")}}. <span class="text-success">SIRS PRO</span> With <span class="text-success">Laravel {{\Illuminate\Support\Facades\App::version()}}</span>
                 </div>
                 <!-- /footer -->
             </div>

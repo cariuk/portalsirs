@@ -41,7 +41,7 @@
     <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/jquery.signature.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/jquery.ui.touch-punch.min.js')}}"></script>
     <!--[if IE]>
-    <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/excanvas.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/js/plugins/editors/js-lib/excanvas.js')}}"></script>
     <![endif]-->
 
     <script type="text/javascript" src="{{asset('assets/js/plugins/notifications/bootbox.min.js')}}"></script>
@@ -95,79 +95,10 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-mobile">
         <div class="col-sm-3 col-lg-3 text-center" style="margin-top:4px;">
-            <img src="{{route('images','Logo_Digital_Arsip_.png')}}" class="img-sm" style="width: 60% !important;" alt="Logo">
+            {{--<img src="{{route('images','Logo_Digital_Arsip_.png')}}" class="img-sm" style="width: 60% !important;" alt="Logo">--}}
         </div>
-        <div class="col-sm-5 col-lg-5 no-padding" style="margin-top:6px;">
-            {{--<div class="input-group has-feedback no-margin">--}}
-                {{--<input name="pencarianPegawai" autocomplete="off" autocorrect="off" autocapitalize="on"--}}
-                       {{--spellcheck="false"--}}
-                       {{--type="text" class="form-control input-xs" placeholder="Cari Pegawai dgn Memasukkan NIP / Nama">--}}
-                {{--<span class="input-group-btn"><button id="main-pencarian" class="btn btn-xs btn-default" type="button"--}}
-                                    {{--data-toggle="tooltip" title="Nomor RM Atau Nama Pegawai"><i--}}
-                                        {{--class="icon-search4 text-size-base"></i></button></span>--}}
-            {{--</div>--}}
-            {{--<script>--}}
-                {{--function cariPegawai() {--}}
-                    {{--var val = $("input[name=pencarianPegawai]").val(),--}}
-                        {{--tabnav = $("#left-icon-tab-dashboard-" + val);--}}
-                    {{--$("input[name=pencarianPegawai]").val("");--}}
-                    {{--if ($.isNumeric(val)) {--}}
-                        {{--if (tabnav.length == 1)--}}
-                            {{--$("#tab-dashboard-" + val).click();--}}
-                        {{--else {--}}
-                            {{--getPegawai("{{route('pegawai.data.detail')}}", {--}}
-                                {{--pegawai: val,--}}
-                                {{--nip:1--}}
-                            {{--});--}}
-                        {{--}--}}
-                    {{--} else {--}}
-                        {{--$.ajax({--}}
-                            {{--url: "{{route('pegawai.data')}}",--}}
-                            {{--data: {params: val},--}}
-                            {{--type: "GET",--}}
-                            {{--dataType: "json",--}}
-                            {{--success: function (response) {--}}
-                                {{--if (response.status == 200) {--}}
-                                    {{--createDialog("list-Pegawai", response.subcontent, false);--}}
-                                {{--}--}}
-                            {{--},--}}
-                            {{--beforeSend: function () {--}}
-                                {{--generalSpinner($(".content"), true);--}}
-                            {{--},--}}
-                            {{--complete: function () {--}}
-                                {{--generalSpinner($(".content"), false);--}}
-                            {{--},--}}
-                            {{--error: function (xhr, thrownError, err) {--}}
-                                {{--if (xhr.responseJSON.status == 422) {--}}
-                                    {{--generalNotify('', xhr.responseJSON.message, 'danger');--}}
-                                {{--}--}}
-                            {{--}--}}
-                        {{--});--}}
-                    {{--}--}}
-                {{--}--}}
-
-                {{--$("input[name=pencarianPegawai]").keypress(function (event) {--}}
-                    {{--if (event.which == 13) {--}}
-                        {{--event.preventDefault();--}}
-                        {{--cariPegawai();--}}
-                    {{--}--}}
-                {{--});--}}
-                {{--$("#main-pencarian").click(function () {--}}
-                    {{--cariPegawai();--}}
-                {{--});--}}
-            {{--</script>--}}
-        </div>
-        <ul class="nav navbar-nav no-margin">
-            {{--<li class="dropdown">--}}
-                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">--}}
-                    {{--<i class="icon-git-compare"></i>--}}
-                    {{--<span class="visible-xs-inline-block position-right">Aktivitas</span>--}}
-                    {{--<span class="badge bg-warning-400">0</span>--}}
-                {{--</a>--}}
-                {{--<div class="dropdown-menu dropdown-content">--}}
-                {{--</div>--}}
-            {{--</li>--}}
-        </ul>
+        <div class="col-sm-5 col-lg-5 no-padding" style="margin-top:6px;"></div>
+        <ul class="nav navbar-nav no-margin"></ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -206,8 +137,9 @@
                 <div class="sidebar-user">
                     <div class="category-content">
                         <div class="media">
-                            <a href="#" class="media-left"><img src="{{route('images','Logo_Digital_Arsip.png')}}"
-                                                                class="img-circle img-sm" alt=""></a>
+                            <a href="#" class="media-left">
+                                {{--<img src="{{route('images','Logo_Digital_Arsip.png')}}" class="img-circle img-sm" alt="">--}}
+                            </a>
                             <div class="media-body">
                                 <span class="media-heading text-semibold"> </span>
                                 <div class="text-size-mini text-muted">
@@ -239,7 +171,7 @@
                     </ul>
                     <div class="navbar-collapse collapse" id="navbar-second">
                         <div class="navbar-text">
-                            © 2018. <span class="text-success">{{ENV("APP_NAME")}}</span>
+                            © {{date("Y")}}. <span class="text-success">SIRS PRO</span> With <span class="text-success">Laravel {{\Illuminate\Support\Facades\App::version()}}</span>
                         </div>
                     </div>
                 </div>
