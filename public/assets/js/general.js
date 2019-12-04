@@ -30,7 +30,7 @@ function setToTable(d, columns = [], table, info) {
             });
         } else {
             $.each(columns, function (k, v) {
-                tbl_row += "<td class='" + v.class + "'>" + v.render(value) + "</td>";
+                tbl_row += "<td class='" + v.class + "' style='"+v.style+"'>" + v.render(value) + "</td>";
             });
         }
         tbl_body += "<tr>" + tbl_row + "</tr>";

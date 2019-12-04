@@ -88,10 +88,22 @@
                 }
             },
             {
-                "name" : "#",
+                "name"  : "#",
                 "class" : "col-xs-2 text-center",
+                "style" : "overflow: unset;",
                 "render"    : function (data) {
-                    return "<button data-pegawai='"+data.peg_id+"' class='btn btn-primary btn-icon' onclick='detail{{$module}}(this);'><b><i class='icon-eye2'></i></b> Detail</button>"
+                    var button =
+                        '<div class="btn-group">\n' +
+                            '<button type="button" class="btn btn-primary btn-icon dropdown-toggle" data-toggle="dropdown">\n' +
+                                '<i class="icon-menu7"></i> &nbsp;<span class="caret"></span>\n' +
+                            '</button>'+
+                                '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="" report-name="pembayaran.CetakRincianPasien" report-type="Word" report-EXT="docx" print-name="CetakRincian" class="cetak-tagihan">Rincian Billing</a>' +
+                                    '</li>\n' +
+                                '</ul>\n' +
+                        '</div>';
+                    return button;
                 }
             },
         ];
