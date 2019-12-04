@@ -57,8 +57,9 @@
 
     var rincian{{$module}} = function (el) {
         var data = $(el).data();
+        console.log("{{route('dashboard.tagihan')}}");
         $.ajax({
-            url: "{{route('dashboard.tagihan')}}",
+            url:"{{route('dashboard.tagihan')}}",
             data: data,
             type: "GET",
             dataType: "json",

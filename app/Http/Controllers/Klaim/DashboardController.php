@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Klaim;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class DashboardController extends IndexController{
@@ -36,6 +37,20 @@ class DashboardController extends IndexController{
     }
 
     public function getTagihan(Request $request){
-        $this->toSIRSPRO("GET","report/request");
+        $result = (object) $this->toSIRSPRO("POST","report/request",[
+            $request->input()
+        ]);
+
+        $url = $result->response->response;
+
+        $guzzelClient = new Client();
+        $getResponse = $guzzelClient->request(
+            "GET",
+            url( $url), [
+                'headers' => [],
+            ]
+        );
+
+        return $getResponse;
     }
 }
