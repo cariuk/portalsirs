@@ -95,26 +95,11 @@ class LoginController extends Controller{
                     ]
                 ]
             ]);
-        }catch (ServerException $exception){
-            return response()->json([
-                "status" => $exception->getCode(),
-                "message" =>$exception->getResponse()
-            ], $exception->getCode());
-        }catch (ClientException $exception){
-            return response()->json([
-                "status" => $exception->getCode(),
-                "message" => $exception->getResponse()
-            ], $exception->getCode());
-        }catch (BadResponseException $exception){
-            return response()->json([
-                "status" => $exception->getCode(),
-                "message" => $exception->getResponse()
-            ], $exception->getCode());
         } catch (\Exception $exception) {
             return response()->json([
-                "status" => 501,
-                "message" => $exception->getMessage()
-            ], 501);
+                "status" => 422,
+                "message" => "Terjadi Kesalahaan Login, Periksa Kembali Useranem Dan Password Anda"
+            ], 422);
         }
     }
 
