@@ -34,4 +34,8 @@ class DashboardController extends IndexController{
             "response" => $result->response->response
         ]);
     }
+
+    public function getTagihan(Request $request){
+        $this->toSIRSPRO("GET","report/request");
+    }
 }

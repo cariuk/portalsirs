@@ -57,7 +57,22 @@
 
     var rincian{{$module}} = function (el) {
         var data = $(el).data();
-        console.log(data);
+        $.ajax({
+            url: "{{route('dashboard.tagihan')}}",
+            data: data,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            },
+            beforeSend: function () {},
+            complete: function () {},
+            error: function (xhr, thrownError, err) {
+                if (xhr.responseJSON.status == 422) {
+                    generalNotify('', xhr.responseJSON.message, 'danger');
+                }
+            }
+        });
     };
 
     $(document).ready(function () {
