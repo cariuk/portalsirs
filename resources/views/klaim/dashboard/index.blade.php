@@ -56,6 +56,8 @@
     pagination{{$module}}.twbsPagination(defaultOpts);
 
     var rincian{{$module}} = function (el) {
+        var data = $(el).data();
+        console.log(data);
     };
 
     $(document).ready(function () {
@@ -97,7 +99,7 @@
                             '</button>'+
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
                                     '<li>' +
-                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Word" report-EXT="docx" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-report="pembayaran.CetakRincianPasien" data-type="Pdf" data-EXT="pdf" data-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';
