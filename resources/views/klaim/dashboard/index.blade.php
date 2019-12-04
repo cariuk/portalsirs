@@ -7,11 +7,23 @@
                     <option value="1">Rawat Inap</option>
                 </select>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-2">
+                <input name="tanggal" datepicker="datetime"
+                       date-format="YYYY-MM-DD" type="text" class="form-control input-xs text-center"
+                       placeholder="[Tgl. SEP (thn/bln/tgl)]">
+                <div class="form-control-feedback">
+                    <i class="icon-calendar2 text-size-base"></i>
+                </div>
+            </div>
+            <div class="col-xs-2">
                 <input name="norm" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="NORM Pasien" value="" />
             </div>
-            <div class="col-xs-6 no-padding">
+            <div class="col-xs-4 no-padding">
                 <input name="q" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="Nama Pasien / No SEP" value="" />
+            </div>
+            <div class="col-xs-2 text-right no-padding">
+                <button type="button" class="btn btn-info btn-labeled btn-xs" onclick="loaddata{{$module}}()"><b><i class="icon-filter4"></i></b> Filter</button>
+                <button type="reset" class="btn btn-info btn-labeled btn-xs"><b><i class="icon-eraser2"></i></b> Clear</button>
             </div>
         </form>
 
@@ -55,17 +67,24 @@
     function loaddata{{$module}}() {
         var columns = [
             {
-                "name" : "Info BPJS",
-                "class" : "col-xs-3 text-center",
+                "name" : "Info SEP",
+                "class" : "col-xs-2 text-left",
                 "render" : function (data) {
-                    return data.NOSEP
+                    return data.TANGGAL+" <br />"+data.NOSEP
                 }
             },
             {
                 "name" : "Info Pasien",
-                "class" : "col-xs-7",
+                "class" : "col-xs-4",
                 "render"    : function (data) {
-                    return data.NORM;
+                    return data.NORM+" - "+data.NAMA;
+                }
+            },
+            {
+                "name" : "INACBG",
+                "class" : "col-xs-3",
+                "render"    : function (data) {
+                    return data.CODECBG;
                 }
             },
             {
