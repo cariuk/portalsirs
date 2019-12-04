@@ -38,19 +38,28 @@ class DashboardController extends IndexController{
 
     public function getTagihan(Request $request){
         $result = (object) $this->toSIRSPRO("POST","report/request",[
-            $request->input()
+            "NAME" => $request->input("name"),
+            "PARAMETER" => $request->input(),
+            "TYPE" => $request->input("type"),
+            "EXT" => $request->input("ext"),
+            "PRINT_NAME" => "report",
+            "COPIES" => 1,
+            "REQUEST_FOR_PRINT" => false,
         ]);
-
+        return response()->json([
+            "status" => 200,
+            "response" => $result->response->response
+        ]);
         $url = $result->response->response;
 
-        $guzzelClient = new Client();
-        $getResponse = $guzzelClient->request(
-            "GET",
-            url( $url), [
-                'headers' => [],
-            ]
-        );
+//        $guzzelClient = new Client();
+//        $getResponse = $guzzelClient->request(
+//            "GET",
+//            url( $url), [
+//                'headers' => [],
+//            ]
+//        );
 
-        return $getResponse;
+        return $url;
     }
 }
