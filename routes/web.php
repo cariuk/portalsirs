@@ -27,7 +27,7 @@ Route::get('reports/{path}/{filename}', function ($path, $filename) {
         abort(404);
     }
 
-    return response()->file($path);
+    return response()->download($path);
 })->name("reports");
 
 Route::group(['namespace' => 'Auth'], function () {
