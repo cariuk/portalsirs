@@ -55,10 +55,8 @@
     var pagination{{$module}} = $('.twbs-pagination{{$module}}');
     pagination{{$module}}.twbsPagination(defaultOpts);
 
-    {{--var detail{{$module}} = function (el) {--}}
-        {{--getPegawai("{{route('pegawai.data.detail')}}", $(el).data());--}}
-        {{--$("#list-Pegawai-dialog").dialog("close");--}}
-    {{--};--}}
+    var rincian{{$module}} = function (el) {
+    };
 
     $(document).ready(function () {
         loaddata{{$module}}();
@@ -99,7 +97,7 @@
                             '</button>'+
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
                                     '<li>' +
-                                        '<a href="#" data-tagihan="" report-name="pembayaran.CetakRincianPasien" report-type="Word" report-EXT="docx" print-name="CetakRincian" class="cetak-tagihan">Rincian Billing</a>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Word" report-EXT="docx" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';
