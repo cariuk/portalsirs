@@ -20,6 +20,7 @@ class DashboardController extends IndexController{
             "sep" => $request->sep,
             "norm" => $request->norm,
             "tanggal" => $request->tanggal, /*Y-m-d*/
+            "tanggalPulang" => $request->tanggalPulang, /*Y-m-d*/
         ]);
 
         if ($result->response==null){
