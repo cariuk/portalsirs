@@ -135,11 +135,11 @@
                                 '<i class="icon-menu7"></i> &nbsp;<span class="caret"></span>\n' +
                             '</button>'+
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
-                                    '<li>' +'<i class="icon-file-eye"></i>'+
-                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Rincian Billing</a>' +
                                     '</li>\n' +
-                                    '<li>' +'<i class="med-lab-microscope"></i>'+
-                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">Laboratorium</a>' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Laboratorium</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';
