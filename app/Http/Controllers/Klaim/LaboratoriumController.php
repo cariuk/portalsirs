@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Klaim;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class LaboratoriumController extends IndexController{
@@ -56,7 +58,7 @@ class LaboratoriumController extends IndexController{
         $guzzle = new Client();
         $response = $guzzle->get($url);
         $filename = time().'.pdf';
-        Storage::put('public/tagihan/'.$filename, $response->getBody());
+        Storage::put('public/laboratorium/'.$filename, $response->getBody());
 
         return response()->json([
             "status" => 200,

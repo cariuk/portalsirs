@@ -37,18 +37,19 @@
     var pagination{{$module}} = $('.twbs-pagination{{$module}}');
     pagination{{$module}}.twbsPagination(defaultOpts);
 
-    var rincian{{$module}} = function (el) {
-
+    var hasillab{{$module}} = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
             PARAMETER: {
-                "PTAGIHAN" : $(el).data("tagihan"),
-                "PSTATUS" : 1
+                "PNOMOR" : $(el).data("nomor"),
+                "PFORMAT" : 1,
+                "PTINDAKAN" : 1,
+                "KOP_HASIL_LAB" : "https://sirspro.anandahospital.co.id/images/kop_hasil_lab_1561115968.jpeg"
             },
-            TYPE: print ? $(el).attr("report-type") : "Pdf",
-            EXT: print ? $(el).attr("report-ext") : "pdf",
-            PRINT_NAME: $(el).attr("print-name"),
-            COPIES: $(el).attr("print-copies"),
+            TYPE: "Pdf",
+            EXT: "pdf",
+            PRINT_NAME: "HasilLaboratorium",
+            COPIES: 1,
             REQUEST_FOR_PRINT: false
         };
         $.ajax({
@@ -74,7 +75,7 @@
                 "name" : "Tanggal Pemeriksaan",
                 "class" : "col-xs-8 text-left",
                 "render" : function (data) {
-                    return data.TANGGAL+" <br />"+data.NOSEP
+                    return data.TANGGAL+" <br />"+data.NOMOR
                 }
             }, {
                 "name"  : "#",
@@ -82,7 +83,7 @@
                 "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
-                        '<button type="button" class="btn btn-primary btn-icon">\n' +
+                        '<button type="button" report-name="layanan.CetakHasilLab" data-nomor="'+data.NOMOR+'" data-tindakan="'+data.TINDAKAN+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
                             '<i class="icon-menu7"></i> Cetak Hasil\n' +
                         '</button>';
                     return button;
