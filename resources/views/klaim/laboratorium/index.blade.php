@@ -71,32 +71,19 @@
         var columns = [
             {
                 "name" : "Tanggal Pemeriksaan",
-                "class" : "col-xs-2 text-left",
-                "render" : function (data) {
-                    return data.TANGGAL+" <br />"+data.NOSEP
-                }
-            }, {
-                "name" : "Tanggal Pemeriksaan",
                 "class" : "col-xs-8 text-left",
                 "render" : function (data) {
                     return data.TANGGAL+" <br />"+data.NOSEP
                 }
             }, {
                 "name"  : "#",
-                "class" : "col-xs-2 text-center",
+                "class" : "col-xs-4 text-center",
                 "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
-                        '<div class="btn-group">\n' +
-                        '<button type="button" class="btn btn-primary btn-icon dropdown-toggle" data-toggle="dropdown">\n' +
-                        '<i class="icon-menu7"></i> &nbsp;<span class="caret"></span>\n' +
-                        '</button>'+
-                        '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
-                        '<li>' +
-                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
-                        '</li>\n' +
-                        '</ul>\n' +
-                        '</div>';
+                        '<button type="button" class="btn btn-primary btn-icon">\n' +
+                            '<i class="icon-menu7"></i> Cetak Hasil\n' +
+                        '</button>';
                     return button;
                 }
             },
