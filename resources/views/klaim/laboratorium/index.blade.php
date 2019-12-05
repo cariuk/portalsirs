@@ -43,7 +43,7 @@
             PARAMETER: {
                 "PNOMOR" : $(el).data("nomor"),
                 "PFORMAT" : 1,
-                "PTINDAKAN" : 1,
+                "PTINDAKAN" : $(el).data("tindakan"),
                 "KOP_HASIL_LAB" : "https://sirspro.anandahospital.co.id/images/kop_hasil_lab_1561115968.jpeg"
             },
             TYPE: "Pdf",
@@ -76,6 +76,12 @@
                 "class" : "col-xs-8 text-left",
                 "render" : function (data) {
                     return data.TANGGAL+" <br />"+data.NOMOR
+                }
+            },{
+                "name" : "Tindakan",
+                "class" : "col-xs-8 text-left",
+                "render" : function (data) {
+                    return data.TINDAKAN
                 }
             }, {
                 "name"  : "#",

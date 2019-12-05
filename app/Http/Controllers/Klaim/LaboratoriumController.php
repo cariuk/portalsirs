@@ -62,7 +62,7 @@ class LaboratoriumController extends IndexController{
 
         return response()->json([
             "status" => 200,
-            "url" => route("reports",["tagihan",Crypt::encryptString($filename)])
+            "url" => route("reports.view",["tagihan",Crypt::encryptString($filename)])
         ]);
     }
 }
