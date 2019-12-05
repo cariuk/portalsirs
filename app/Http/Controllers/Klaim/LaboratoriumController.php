@@ -21,19 +21,12 @@ class LaboratoriumController extends IndexController{
 
         if ($validator->fails()){
             return response()->json([
-                $this->diagnostic( $validator->messages()->first(),422)
+                "status" => 422,
+                "message" => $validator->messages()->first()
             ],422);
         }
 
-        $result = (object) $this->toSIRSPRO("GET","klaim/laboratoriums?",[
-            "page" => $request->page,
-            "q" => $request->q,
-            "pelayanan" => $request->pelayanan, /*Rawat Inap = 1 ,  Rawat Jalan = 2*/
-            "sep" => $request->sep,
-            "norm" => $request->norm,
-            "tanggal" => $request->tanggal, /*Y-m-d*/
-            "tanggalPulang" => $request->tanggalPulang, /*Y-m-d*/
-        ]);
+        $result = (object) $this->toSIRSPRO("GET","klaim/laboratorium?tagihan=".$request->tagihan);
 
         if ($result->response==null){
             return response()->json([

@@ -2,10 +2,11 @@
     <div class="panel-body" style="padding: 5px;">
         <form id="filter{{$module}}">
             <div class="col-xs-6">
-                <input autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="NORM Pasien" value="{{$request->norm}}" />
+                <input name="tagihan" type="hidden" class="form-control input-xs" value="{{$request->tagihan}}" />
+                <input readonly type="text" class="form-control input-xs" placeholder="NORM Pasien" value="{{$request->norm}}" />
             </div>
             <div class="col-xs-6">
-                <input autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="Nama Pasien / No SEP" value="{{$request->nama}}" />
+                <input readonly type="text" class="form-control input-xs" placeholder="Nama Pasien / No SEP" value="{{$request->nama}}" />
             </div>
         </form>
     </div>

@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
     });
 
     Route::group(['prefix' => 'laboratorium'], function () {
-        Route::get('/', 'LaboratoriumController@index')->name('dashboard');
+        Route::get('/', 'LaboratoriumController@index')->name('laboratorium');
         Route::get('/loaddata', 'LaboratoriumController@getData')->name('laboratorium.loaddata');
         Route::get('/cetak', 'DashboardController@getTagihan')->name('laboratorium.cetak');
     });

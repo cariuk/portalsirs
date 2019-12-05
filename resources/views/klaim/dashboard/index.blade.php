@@ -57,17 +57,20 @@
 
     var laboratorium{{$module}} = function (el) {
         $.ajax({
-            url: "{{route('dashboard.tagihan')}}",
-            data: request,
+            url: "{{route('laboratorium')}}",
+            data: $(el).data(),
             type: "GET",
             dataType: "json",
             success: function (response) {
-                window.open(response.url, '_blank');
+                createDialog("laboratorium",response.subcontent);
             },
-            beforeSend: function () {},
-            complete: function () {},
+            beforeSend: function () {
+            },
+            complete: function () {
+            },
         });
-    });
+    }
+
     var rincian{{$module}} = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
