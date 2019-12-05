@@ -55,8 +55,20 @@
     var pagination{{$module}} = $('.twbs-pagination{{$module}}');
     pagination{{$module}}.twbsPagination(defaultOpts);
 
+    var laboratorium{{$module}} = function (el) {
+        $.ajax({
+            url: "{{route('dashboard.tagihan')}}",
+            data: request,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                window.open(response.url, '_blank');
+            },
+            beforeSend: function () {},
+            complete: function () {},
+        });
+    });
     var rincian{{$module}} = function (el) {
-
         var request = {
             NAME: $(el).attr("report-name"),
             PARAMETER: {
@@ -122,6 +134,9 @@
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">Rincian Billing</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">Laboratorium</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';

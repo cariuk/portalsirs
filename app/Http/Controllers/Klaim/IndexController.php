@@ -15,7 +15,7 @@ class IndexController extends Controller{
 
     public function index(Request $request){
         extract(get_object_vars($this));
-        $view = view($this->pathview.$this->module.'.index',compact('module','data'))->render();
+        $view = view($this->pathview.$this->module.'.index',compact('module','data','request'))->render();
         return response()->json([
             "status" => 200,
             "subcontent" => $view
