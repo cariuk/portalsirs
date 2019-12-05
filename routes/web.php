@@ -22,7 +22,7 @@ Route::get('images/{filename}', function ($filename) {
     return $response;
 })->name("images");
 
-Route::get('reports/{path}/{filename}', function ($path, $filename) {
+Route::get('reports/view/{path}/{filename}', function ($path, $filename) {
     $path = storage_path('app/public/' . $path . '/' . \Illuminate\Support\Facades\Crypt::decryptString($filename));
     if (!File::exists($path)) {
         abort(404);
