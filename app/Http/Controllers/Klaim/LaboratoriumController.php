@@ -3,21 +3,29 @@
 namespace App\Http\Controllers\Klaim;
 
 use App\Http\Controllers\Controller;
-use Facade\FlareClient\Report;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
-class DashboardController extends IndexController{
+class LaboratoriumController extends IndexController{
     public function __construct(){
         parent::__construct();
-        $this->module = "dashboard";
+        $this->module = "laboratorium";
     }
 
-    public function getData(Request $request){
+    function getData(Request $request){
         extract(get_object_vars($this));
-        $result = (object) $this->toSIRSPRO("GET","klaim/data?",[
+        $validator = Validator::make(
+            $request->all(), [
+            'tagihan'=>'required',
+        ],[]);
+
+        if ($validator->fails()){
+            return response()->json([
+                $this->diagnostic( $validator->messages()->first(),422)
+            ],422);
+        }
+
+        $result = (object) $this->toSIRSPRO("GET","klaim/laboratoriums?",[
             "page" => $request->page,
             "q" => $request->q,
             "pelayanan" => $request->pelayanan, /*Rawat Inap = 1 ,  Rawat Jalan = 2*/
@@ -39,7 +47,7 @@ class DashboardController extends IndexController{
         ]);
     }
 
-    public function getTagihan(Request $request){
+    function getReport(Request $request){
         $post = [
             "NAME" => $request->input("NAME"),
             "PARAMETER" => $request->input("PARAMETER"),
@@ -61,9 +69,5 @@ class DashboardController extends IndexController{
             "status" => 200,
             "url" => route("reports",["tagihan",Crypt::encryptString($filename)])
         ]);
-    }
-
-    public function getHasilLaboratorium(Request $request){
-
     }
 }
