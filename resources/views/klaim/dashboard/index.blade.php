@@ -85,7 +85,7 @@
             REQUEST_FOR_PRINT: false
         };
         $.ajax({
-            url: "{{route('laboratorium.tagihan')}}",
+            url: "{{route('dashboard.tagihan')}}",
             data: request,
             type: "GET",
             dataType: "json",
