@@ -75,15 +75,17 @@ class LoginController extends Controller{
             $user = User::where('username', $request->username)->first();
             if ($user == null) {
                 $new = new User();
+                    $new->id = $sirsproUser->id;
                     $new->username = $sirsproUser->username;
                     $new->token = $response->accessToken;
                     $new->nama = $sirsproUser->nama_lengkap;
                 $new->save();
-            } else {
-                User::where('username', '=', $request->username)->update([
-                    "token" => $getResponse->response->accessToken
-                ]);
                 $user = User::where('username', $request->username)->first();
+            } else {
+                User::where('username', $sirsproUser->username)->update([
+                    "token" => $response->accessToken,
+                    "nama" => $sirsproUser->nama_lengkap
+                ]);
             }
 
             Auth::login($user);
@@ -101,7 +103,8 @@ class LoginController extends Controller{
         } catch (\Exception $exception) {
             return response()->json([
                 "status" => 422,
-                "message" => "Terjadi Kesalahaan Login, Periksa Kembali Useranem Dan Password Anda"
+                "message" => "Terjadi Kesalahaan Login, Periksa Kembali Useranem Dan Password Anda",
+                "error" => $exception->getMessage()
             ], 422);
         }
     }
