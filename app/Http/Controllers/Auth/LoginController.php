@@ -50,6 +50,7 @@ class LoginController extends Controller{
 
     public function login(Request $request){
         $client = new Client();
+
         try {
             $getResponse = $client->request(
                 'POST',
@@ -100,12 +101,17 @@ class LoginController extends Controller{
                     ]
                 ]
             ]);
+        } catch (ClientException $exception) {
+            $response =  json_decode($exception->getResponse()->getBody()->getContents());
+            return response()->json([
+                "status" => $response->diagnostic->status,
+                "message" => $response->diagnostic->description,
+            ], $response->diagnostic->status);
         } catch (\Exception $exception) {
             return response()->json([
-                "status" => 422,
-                "message" => "Terjadi Kesalahaan Login, Periksa Kembali Username Dan Password Anda",
-                "error" => $exception->getMessage()
-            ], 422);
+                "status" => $exception->getCode(),
+                "message" => $exception->getMessage(),
+            ], $exception->getCode());
         }
     }
 
