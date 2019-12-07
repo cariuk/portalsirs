@@ -30,12 +30,12 @@ class Controller extends BaseController {
                 "status" => $getResponse->getStatusCode(),
                 "response" => json_decode($getResponse->getBody())
             ];
-        }catch (ClientException $e) {
-            $response = $e->getResponse();
-            return [
-                "status" => $response->getStatusCode(),
-                "response" => $response->getBody()
-            ];
+        }catch (ClientException $exception) {
+            $response =  json_decode($exception->getResponse()->getBody()->getContents());
+            return response()->json([
+                "status" => $response->diagnostic->status,
+                "message" => $response->diagnostic->description,
+            ], $response->diagnostic->status);
         }
         catch (\Exception $exception) {
             return response()->json([
