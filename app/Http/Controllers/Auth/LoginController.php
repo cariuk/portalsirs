@@ -103,7 +103,7 @@ class LoginController extends Controller{
         } catch (\Exception $exception) {
             return response()->json([
                 "status" => 422,
-                "message" => "Terjadi Kesalahaan Login, Periksa Kembali Useranem Dan Password Anda",
+                "message" => "Terjadi Kesalahaan Login, Periksa Kembali Username Dan Password Anda",
                 "error" => $exception->getMessage()
             ], 422);
         }
