@@ -69,12 +69,15 @@ class LoginController extends Controller{
                     "message" => "",
                 ]);
             }
+            $response = $getResponse->response;
+            $sirsproUser = $response->user;
 
-            $user = User::where('username', '=', $request->username)->first();
+            $user = User::where('username', $request->username)->first();
             if ($user == null) {
                 $new = new User();
-                $new->username = $request->username;
-                $new->token = $getResponse->response->accessToken;
+                    $new->username = $sirsproUser->username;
+                    $new->token = $response->accessToken;
+                    $new->nama = $sirsproUser->nama_lengkap;
                 $new->save();
             } else {
                 User::where('username', '=', $request->username)->update([
