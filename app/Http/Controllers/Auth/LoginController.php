@@ -101,7 +101,7 @@ class LoginController extends Controller{
                     ]
                 ]
             ]);
-        } catch (ClientException $exception) {
+        }catch (ClientException $exception) {
             $response =  json_decode($exception->getResponse()->getBody()->getContents());
             return response()->json([
                 "status" => $response->diagnostic->status,
