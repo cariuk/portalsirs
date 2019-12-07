@@ -103,7 +103,7 @@
             <li class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="assets/images/placeholder.jpg" alt="">
-                    <span>{{\Illuminate\Support\Facades\Auth::user()->username}}</span>
+                    <span>{{\Illuminate\Support\Facades\Auth::user()->nama}}</span>
                     <i class="caret"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
