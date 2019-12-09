@@ -29,7 +29,7 @@ class LaboratoriumController extends IndexController{
             ],422);
         }
 
-        $result = (object) $this->toSIRSPRO("GET","klaim/laboratorium?tagihan=".$request->tagihan);
+        $result = (object) $this->toSIRSPRO("GET","medicalrecord/laboratorium?tagihan=".$request->tagihan);
 
         if ($result->response==null){
             return response()->json([
