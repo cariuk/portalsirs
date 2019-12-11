@@ -151,7 +151,7 @@
                             '</button>'+
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
                                     '<li>' +
-                                        '<a href="#" data-nosep="'+data.NOSEP+'" onclick="individual{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Lembar Individual</a>' +
+                                        '<a href="#" data-nosep="'+data.NOSEP+'" onclick="individual{{$module}}(this)">'+'<i class="icon-magazine"></i>'+'Lembar Individual</a>' +
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Rincian Billing</a>' +
