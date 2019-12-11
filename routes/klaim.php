@@ -13,7 +13,7 @@
 
 Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
     Route::group(['prefix' => 'dashboard'], function () {
-        Route::get('/', 'DataController@index')->name('dashboard');
+        Route::get('/', 'DashboardController@index')->name('dashboard');
     });
     Route::group(['prefix' => 'data'], function () {
         Route::get('/', 'DataController@index')->name('data');
