@@ -4,10 +4,18 @@
             <div class="sidebar-content scrollbarV" data-autoheight data-scroll="true" data-subs="150">
                 <!-- Sub navigation -->
                 <ul id="navigation-{{$module}}" class="navigation navigation-alt navigation-accordion no-padding">
-                    <li><a id="kategori" class="sub-menu-{{$module}} text-center"
-                           href="{{route('dashboard')}}"><span><i class="icon-make-group"></i></span>
+                    <li>
+                        <a id="dashboard" class="sub-menu-{{$module}} text-center"
+                           href="{{route('dashboard')}}"><span><i class="icon-file-presentation"></i></span>
                             <hr>
-                            Dashboard</a></li>
+                            Dashboard</a>
+                    </li>
+                    <li>
+                        <a id="data" class="sub-menu-{{$module}} text-center"
+                           href="{{route('data')}}"><span><i class="icon-file-spreadsheet"></i></span>
+                            <hr>
+                            Data</a>
+                    </li>
                 </ul>
                 <!-- /sub navigation -->
             </div>

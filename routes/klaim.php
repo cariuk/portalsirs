@@ -13,9 +13,12 @@
 
 Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
     Route::group(['prefix' => 'dashboard'], function () {
-        Route::get('/', 'DashboardController@index')->name('dashboard');
-        Route::get('/loaddata', 'DashboardController@getData')->name('dashboard.loaddata');
-        Route::get('/tagihan', 'DashboardController@getTagihan')->name('dashboard.tagihan');
+        Route::get('/', 'DataController@index')->name('dashboard');
+    });
+    Route::group(['prefix' => 'data'], function () {
+        Route::get('/', 'DataController@index')->name('data');
+        Route::get('/loaddata', 'DataController@getData')->name('data.loaddata');
+        Route::get('/tagihan', 'DataController@getTagihan')->name('data.tagihan');
     });
 
     Route::group(['prefix' => 'laboratorium'], function () {
