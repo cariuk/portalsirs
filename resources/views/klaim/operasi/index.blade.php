@@ -45,7 +45,7 @@
             },
             TYPE: "Pdf",
             EXT: "pdf",
-            PRINT_NAME: "HasilLaboratorium",
+            PRINT_NAME: "{{$module}}",
             COPIES: 1,
             REQUEST_FOR_PRINT: false
         };
@@ -86,7 +86,7 @@
                 "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
-                        '<button type="button" report-name="layanan.CetakHasilLab" data-opearsi="'+data.OPERASI+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
+                        '<button type="button" report-name="mr.CetakLaporanOperasi" data-operasi="'+data.OPERASI+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
                             '<i class="icon-file-eye"></i> Cetak Laporan\n' +
                         '</button>';
                     return button;

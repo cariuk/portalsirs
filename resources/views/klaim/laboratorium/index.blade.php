@@ -48,7 +48,7 @@
             },
             TYPE: "Pdf",
             EXT: "pdf",
-            PRINT_NAME: "HasilLaboratorium",
+            PRINT_NAME: "{{$module}}",
             COPIES: 1,
             REQUEST_FOR_PRINT: false
         };
