@@ -27,4 +27,9 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
         Route::get('/loaddata', 'LaboratoriumController@getData')->name('laboratorium.loaddata');
         Route::get('/cetak', 'LaboratoriumController@getReport')->name('laboratorium.report');
     });
+    Route::group(['prefix' => 'laporanoperasi'], function () {
+        Route::get('/', 'LaporanOperasiController@index')->name('operasi');
+        Route::get('/loaddata', 'LaporanOperasiController@getData')->name('operasi.loaddata');
+        Route::get('/cetak', 'LaporanOperasiController@getReport')->name('operasi.report');
+    });
 });

@@ -41,10 +41,7 @@
         var request = {
             NAME: $(el).attr("report-name"),
             PARAMETER: {
-                "PNOMOR" : $(el).data("nomor"),
-                "PFORMAT" : 1,
-                "PTINDAKAN" : $(el).data("tindakan"),
-                "KOP_HASIL_LAB" : "https://sirspro.anandahospital.co.id/images/kop_hasil_lab_1561115968.jpeg"
+                "PID" : $(el).data("operasi"),
             },
             TYPE: "Pdf",
             EXT: "pdf",
@@ -72,16 +69,16 @@
     function loaddata{{$module}}() {
         var columns = [
             {
-                "name" : "Tanggal Pemeriksaan",
-                "class" : "col-xs-8 text-left",
+                "name" : "Tanggal Laporan",
+                "class" : "col-xs-8 text-center",
                 "render" : function (data) {
-                    return data.TANGGAL+" <br />"+data.NOMOR
+                    return data.TANGGAL_OPERASI
                 }
             },{
-                "name" : "Tindakan",
-                "class" : "col-xs-8 text-left",
+                "name" : "Waktu Operasi",
+                "class" : "col-xs-8 text-center",
                 "render" : function (data) {
-                    return data.TINDAKAN
+                    return data.MULAI_OPERASI+" - "+data.SELESAI_OPERASI
                 }
             }, {
                 "name"  : "#",
@@ -89,8 +86,8 @@
                 "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
-                        '<button type="button" report-name="layanan.CetakHasilLab" data-nomor="'+data.NOMOR+'" data-tindakan="'+data.TINDAKAN+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
-                            '<i class="icon-file-eye"></i> Cetak Hasil\n' +
+                        '<button type="button" report-name="layanan.CetakHasilLab" data-opearsi="'+data.OPERASI+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
+                            '<i class="icon-file-eye"></i> Cetak Laporan\n' +
                         '</button>';
                     return button;
                 }

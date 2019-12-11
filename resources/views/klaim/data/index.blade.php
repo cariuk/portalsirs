@@ -111,6 +111,21 @@
         });
     };
 
+    var operasi{{$module}} = function (el) {
+        $.ajax({
+            url: "{{route('operasi')}}",
+            data: $(el).data(),
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                createDialog("opearsi",response.subcontent);
+            },
+            beforeSend: function () {
+            },
+            complete: function () {
+            },
+        });
+    };
 
     $(document).ready(function () {
         loaddata{{$module}}();
@@ -136,7 +151,7 @@
                 "name" : "INACBG",
                 "class" : "col-xs-3",
                 "render"    : function (data) {
-                    return data.CODECBG;
+                    return data.CODECBG+" - "+data.CODECBG_DESKRIPSI;
                 }
             },
             {
@@ -158,6 +173,9 @@
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">'+'<i class="fa fa-flask"></i>'+'Laboratorium</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="operasi{{$module}}(this)">'+'<i class="med-examination"></i>'+'Laporan Operasi</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';
