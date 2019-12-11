@@ -19,6 +19,7 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
         Route::get('/', 'DataController@index')->name('data');
         Route::get('/loaddata', 'DataController@getData')->name('data.loaddata');
         Route::get('/tagihan', 'DataController@getTagihan')->name('data.tagihan');
+        Route::get('/individual', 'DataController@getLembarIndividual')->name('data.individual');
     });
 
     Route::group(['prefix' => 'laboratorium'], function () {

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Klaim;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -75,9 +77,12 @@ class DataController extends IndexController{
                 "message" => $validator->messages()->first()
             ],422);
         }
-        $result = (object) $this->toSIRSPRO("GET","klaim/individualpasien/".$request->nosep);
-        $filename = time().'.pdf';
-        Storage::put('public/individualpasien/'.$filename, $result->getBody());
+
+        $guzzle = new Client();
+        $response = $guzzle->get(url( env("SIRSPRO")."/api/klaim/individualpasien/".$request->nosep."?access_token=".Auth::user()->token));
+
+        $filename = $request->nosep.'.pdf';
+        Storage::put('public/individualpasien/'.$filename, $response->getBody());
 
         return response()->json([
             "status" => 200,
