@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Klaim;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class DataController extends IndexController{
     public function __construct(){
@@ -59,7 +62,26 @@ class DataController extends IndexController{
         ]);
     }
 
-    public function getHasilLaboratorium(Request $request){
+    public function getLembarIndividual(Request $request){
+        extract(get_object_vars($this));
+        $validator = Validator::make(
+            $request->all(), [
+            'nosep'=>'required',
+        ],[]);
 
+        if ($validator->fails()){
+            return response()->json([
+                "status" => 422,
+                "message" => $validator->messages()->first()
+            ],422);
+        }
+        $result = (object) $this->toSIRSPRO("GET","klaim/individualpasien/".$request->nosep);
+        $filename = time().'.pdf';
+        Storage::put('public/individualpasien/'.$filename, $result->getBody());
+
+        return response()->json([
+            "status" => 200,
+            "url" => route("reports.view",["individualpasien",Crypt::encryptString($filename)])
+        ]);
     }
 }
