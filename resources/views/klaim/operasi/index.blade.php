@@ -53,7 +53,7 @@
             url: "{{route('laboratorium.report')}}",
             data: request,
             type: "GET",
-            dataType: "json",
+            dataType: "jsona",
             success: function (response) {
                 window.open(response.url, '_blank');
             },
