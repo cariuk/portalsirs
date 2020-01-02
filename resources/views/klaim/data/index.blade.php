@@ -69,8 +69,20 @@
             complete: function () {
             },
         });
-    }
-
+    };
+    var berkas{{$module}} = function (el) {
+        $.ajax({
+            url: "{{route('berkas')}}",
+            data: $(el).data(),
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                createDialog("berkas",response.subcontent);
+            },
+            beforeSend: function () {},
+            complete: function () {},
+        });
+    };
     var rincian{{$module}} = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
@@ -170,6 +182,9 @@
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Rincian Billing</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="'+data.NOPEN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="berkas{{$module}}(this)">'+'<i class="icon-books"></i>'+'Berkas</a>' +
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">'+'<i class="fa fa-flask"></i>'+'Laboratorium</a>' +
