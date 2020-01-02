@@ -2,7 +2,7 @@
     <div class="panel-body" style="padding: 5px;">
         <form id="filter{{$module}}">
             <div class="col-xs-6">
-                <input name="tagihan" type="hidden" class="form-control input-xs" value="{{$request->tagihan}}" />
+                <input name="nopen" type="hidden" class="form-control input-xs" value="{{$request->nopen}}" />
                 <input readonly type="text" class="form-control input-xs" placeholder="NORM Pasien" value="{{$request->norm}}" />
             </div>
             <div class="col-xs-6">
@@ -72,29 +72,18 @@
     function loaddata{{$module}}() {
         var columns = [
             {
-                "name" : "Tanggal Pemeriksaan",
-                "class" : "col-xs-8 text-left",
+                "name" : "Tanggal & Deskripsi",
+                "class" : "col-xs-2 text-left",
                 "render" : function (data) {
-                    return data.TANGGAL+" <br />"+data.NOMOR
+                    return "<label class='label label-info'>"+data.TANGGAL+"</label> <br />"+data.DESKRIPSI
                 }
             },{
-                "name" : "Tindakan",
-                "class" : "col-xs-8 text-left",
+                "name" : "Document",
+                "class" : "col-xs-10 text-left",
                 "render" : function (data) {
-                    return data.TINDAKAN
+                    return "{{url('berkas.file')}}?nopen=".data.NOPEN+"file="+data.FILE
                 }
-            }, {
-                "name"  : "#",
-                "class" : "col-xs-4 text-center",
-                "style" : "overflow: unset;",
-                "render"    : function (data) {
-                    var button =
-                        '<button type="button" report-name="layanan.CetakHasilLab" data-nomor="'+data.NOMOR+'" data-tindakan="'+data.TINDAKAN+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
-                            '<i class="icon-file-eye"></i> Cetak Hasil\n' +
-                        '</button>';
-                    return button;
-                }
-            },
+            }
         ];
         getData('{{$module}}',"{{route($module.'.loaddata')}}",columns,pagination{{$module}},spinner{{$module}});
     }
