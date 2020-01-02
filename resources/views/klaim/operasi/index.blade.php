@@ -53,7 +53,7 @@
             url: "{{route('operasi.report')}}",
             data: request,
             type: "GET",
-            dataType: "jsona",
+            dataType: "json",
             success: function (response) {
                 window.open(response.url, '_blank');
             },
