@@ -114,6 +114,48 @@ function contentAutoHeight(element, scroll = true, drag = false, substract = 137
     }
 }
 
+function generalProgress(title) {
+    var cur_value = 1,
+        progress;
+
+    // Make a loader.
+    new PNotify({
+        title: title,
+        text: '<div class="progress progress-striped active" style="margin:0">\
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0">\
+            <span class="sr-only">0%</span>\
+            </div>\
+            </div>',
+        addclass: 'stack-bottom-left bg-success',
+        icon: 'icon-spinner4 spinner',
+        hide: false,
+        buttons: {
+            closer: false,
+            sticker: false
+        },
+        history: {
+            history: false
+        },
+        before_open: function(PNotify) {
+            progress = PNotify.get().find("div.progress-bar");
+            progress.width(cur_value + "%").attr("aria-valuenow", cur_value).find("span").html(cur_value + "%");
+
+            // Pretend to do something.
+            var timer = setInterval(function() {
+                if (cur_value >= 100) {
+
+                    // Remove the interval.
+                    window.clearInterval(timer);
+                    loader.remove();
+                    return;
+                }
+                cur_value += 1;
+                progress.width(cur_value + "%").attr("aria-valuenow", cur_value).find("span").html(cur_value + "%");
+            }, 65);
+        }
+    });
+}
+
 function generalSpinner(el, state) {
     if (state)
         el.block({
