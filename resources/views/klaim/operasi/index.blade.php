@@ -56,9 +56,14 @@
             dataType: "json",
             success: function (response) {
                 window.open(response.url, '_blank');
+                generalSpinner(spinner{{$module}},false);
             },
-            beforeSend: function () {},
-            complete: function () {},
+            beforeSend: function () {
+                generalSpinner(spinner{{$module}},true);
+            },
+            complete: function () {
+                generalSpinner(spinner{{$module}},false);
+            },
         });
     };
 
