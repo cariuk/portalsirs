@@ -81,7 +81,19 @@
                 "name" : "Document",
                 "class" : "col-xs-10 text-left",
                 "render" : function (data) {
-                    return "{{route('berkas.file')}}?nopen="+data.NOPEN+"file="+data.FILE
+                    return '<div class="thumbnail">\n' +
+                    '                    <div class="thumb">\n' +
+                    '                        <img src="{{route('berkas.file')}}?nopen='+data.NOPEN+'&file='+data.FILE+'" alt="">\n' +
+                    '                        <div class="caption-overflow">\n' +
+                    '                            <span>\n' +
+                    '                                <a href="{{route('berkas.file')}}?nopen='+data.NOPEN+'&file='+data.FILE+'" target="_blank"'+
+                    '                                   data-popup="lightbox" rel="gallery"\n' +
+                    '                                   class="btn border-white text-white btn-flat btn-icon btn-rounded"><i\n' +
+                    '                                            class="icon-zoomin3"></i></a>\n' +
+                    '                            </span>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '                </div>';
                 }
             }
         ];
