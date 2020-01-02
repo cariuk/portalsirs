@@ -16,7 +16,7 @@
         <div class="table-responsive">
             <table id="table-{{$module}}" class="table table-xxs table-hover fixed-table table-framed table-bordered">
                 <thead style="width:100%;"></thead>
-                <tbody class="scrollbarV" data-autoheight data-scroll="true" data-subs="300"></tbody>
+                <tbody class="scrollbarV" data-autoheight data-scroll="true" data-subs="150"></tbody>
                 <tfoot style="width:100%;">
                 <tr>
                     <td colspan="6" style="border-bottom: 0px; border-left:0px; border-right:0px;  " >
@@ -73,13 +73,13 @@
         var columns = [
             {
                 "name" : "Tanggal & Deskripsi",
-                "class" : "col-xs-2 text-left",
+                "class" : "col-xs-6 text-center",
                 "render" : function (data) {
                     return "<label class='label label-info'>"+data.TANGGAL+"</label> <br />"+data.DESKRIPSI
                 }
             },{
                 "name" : "Document",
-                "class" : "col-xs-10 text-left",
+                "class" : "col-xs-6 text-left",
                 "render" : function (data) {
                     return '<div class="thumbnail">\n' +
                     '                    <div class="thumb">\n' +

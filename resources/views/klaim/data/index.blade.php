@@ -77,7 +77,7 @@
             type: "GET",
             dataType: "json",
             success: function (response) {
-                createDialog("berkas",response.subcontent);
+                createDialog("berkas",response.subcontent,true);
             },
             beforeSend: function () {},
             complete: function () {},

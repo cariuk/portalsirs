@@ -38,6 +38,8 @@ function setToTable(d, columns = [], table, info) {
     $(table + " thead").html(tbl_head);
     $(table + " tbody").html(tbl_body);
     /*Insialisasi Info*/
+    tooltipStyle(table);
+    fancyboxStyle(table);
     $(info).html("Menampilkan " + (d.from == null ? "0" : d.from) + " - " + (d.to == null ? "0" : d.to) + " dari " + (d.total == null ? "0" : d.total));
 }
 
@@ -231,6 +233,11 @@ function switchWithLabel(element) {
     $(element).find(".switch").bootstrapSwitch();
 }
 
+function fancyboxStyle(element){
+    $(element).find('[data-popup="lightbox"]').fancybox({
+        padding: 3
+    });
+}
 function contextMenu(element) {
     $.each($(element).find("[data-contextmenu]"), function (index, el) {
         var $selector = $(el),
