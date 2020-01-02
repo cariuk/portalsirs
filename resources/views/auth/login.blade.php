@@ -28,9 +28,6 @@
     </form>
     <!-- /simple login form -->
     <script>
-        $('#pnotify-progress').on('click', function () {
-            generalProgress("Sedang Membuat Laporan");
-        });
         $(document).ready(function(){
             $("#formlogin").validate({
                 ignore: 'input[type=hidden], .select2-input', // ignore hidden fields
