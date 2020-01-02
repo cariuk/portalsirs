@@ -20,8 +20,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        {{--<button type="button" class="btn btn-default btn-sm" id="pnotify-progress">Launch <i class="icon-play3 position-right"></i></button>--}}
-                        <button type="submit" class="btn btn-primary pull-right">Masuk <i class="icon-circle-right2 position-right"></i></button>
+                         <button type="submit" class="btn btn-primary pull-right">Masuk <i class="icon-circle-right2 position-right"></i></button>
                     </div>
                 </div>
             </div>
