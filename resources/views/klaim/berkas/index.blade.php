@@ -81,7 +81,7 @@
                 "name" : "Document",
                 "class" : "col-xs-10 text-left",
                 "render" : function (data) {
-                    return "{{url('berkas.file')}}?nopen=".data.NOPEN+"file="+data.FILE
+                    return "{{route('berkas.file')}}?nopen="+data.NOPEN+"file="+data.FILE
                 }
             }
         ];

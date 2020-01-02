@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,7 +48,7 @@ class BerkasController extends IndexController{
         extract(get_object_vars($this));
         $validator = Validator::make(
             $request->all(), [
-            'nosep'=>'required',
+            'nopen'=>'required',
             'file'=>'required',
         ],[]);
 
@@ -59,15 +60,17 @@ class BerkasController extends IndexController{
         }
 
         $guzzle = new Client();
-        $response = $guzzle->get(url( env("SIRSPRO")."/api/medicalrecord/berkas/view/".$request->nosep."/".$request->file."?access_token=".Auth::user()->token));
+        $response = $guzzle->get(url( env("SIRSPRO")."/api/medicalrecord/berkas/view/".$request->nopen."/".$request->file."?access_token=".Auth::user()->token));
+        Storage::put('public/berkas/'.$request->file, $response->getBody());
 
-//        $filename = $request->nosep.'.pdf';
-//        Storage::put('public/berkas/'.$filename, $response->getBody());
-
-        return $response->getBody();
-//        return response()->json([
-//            "status" => 200,
-//            "url" => route("reports.view",["individualpasien",Crypt::encryptString($filename)])
-//        ]);
+        $path = storage_path('app/public/berkas/'.$request->file);
+        if (!File::exists($path)) {
+            abort(404);
+        }
+        $file = File::get($path);
+        $type = File::mimeType($path);
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+        return $response;
     }
 }
