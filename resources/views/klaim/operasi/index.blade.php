@@ -37,7 +37,7 @@
     var pagination{{$module}} = $('.twbs-pagination{{$module}}');
     pagination{{$module}}.twbsPagination(defaultOpts);
 
-    var hasillab{{$module}} = function (el) {
+    var viewLaporan{{$module}} = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
             PARAMETER: {
@@ -86,7 +86,7 @@
                 "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
-                        '<button type="button" report-name="mr.CetakLaporanOperasi" data-operasi="'+data.OPERASI+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
+                        '<button type="button" report-name="mr.CetakLaporanOperasi" data-operasi="'+data.OPERASI+'" class="btn btn-primary btn-icon" onclick="viewLaporan{{$module}}(this)">\n' +
                             '<i class="icon-file-eye"></i> Cetak Laporan\n' +
                         '</button>';
                     return button;
