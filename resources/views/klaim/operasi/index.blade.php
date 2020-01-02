@@ -50,7 +50,7 @@
             REQUEST_FOR_PRINT: false
         };
         $.ajax({
-            url: "{{route('laboratorium.report')}}",
+            url: "{{route('operasi.report')}}",
             data: request,
             type: "GET",
             dataType: "jsona",
