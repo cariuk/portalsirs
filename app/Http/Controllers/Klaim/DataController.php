@@ -20,12 +20,11 @@ class DataController extends IndexController{
         extract(get_object_vars($this));
         $result = (object) $this->toSIRSPRO("GET","klaim/data?",[
             "page" => $request->page,
-            "q" => $request->q,
             "pelayanan" => $request->pelayanan, /*Rawat Inap = 1 ,  Rawat Jalan = 2*/
-            "sep" => $request->sep,
-            "norm" => $request->norm,
             "tanggal" => $request->tanggal, /*Y-m-d*/
-            "tanggalPulang" => $request->tanggalPulang, /*Y-m-d*/
+            "norm" => $request->norm,
+            "cbg" => $request->cbg,
+            "q" => $request->q,
         ]);
 
         if ($result->response==null){

@@ -1,7 +1,7 @@
 <div class="panel panel-flat no-margin">
     <div class="panel-body" style="padding: 5px;">
         <form id="filter{{$module}}">
-            <div class="col-xs-2 no-padding">
+            <div class="col-xs-1 no-padding">
                 <select name="pelayanan" class="select2">
                     <option value="2">Rawat Jalan</option>
                     <option value="1">Rawat Inap</option>
@@ -18,7 +18,10 @@
             <div class="col-xs-2">
                 <input name="norm" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="NORM Pasien" value="" />
             </div>
-            <div class="col-xs-4 no-padding">
+            <div class="col-xs-2 no-padding">
+                <input name="cbg" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="CBG" value="" />
+            </div>
+            <div class="col-xs-3 no-padding">
                 <input name="q" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="Nama Pasien / No SEP" value="" />
             </div>
             <div class="col-xs-2 text-right no-padding">
@@ -26,7 +29,6 @@
                 <button type="reset" class="btn btn-info btn-labeled btn-xs" onmouseup="loaddata{{$module}}()"><b><i class="icon-eraser2"></i></b> Clear</button>
             </div>
         </form>
-
     </div>
 </div>
 <div class="panel panel-flat no-margin">

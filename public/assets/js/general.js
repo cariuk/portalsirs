@@ -117,9 +117,7 @@ function contentAutoHeight(element, scroll = true, drag = false, substract = 137
 }
 
 function generalProgress(title) {
-    var cur_value = 1,
-        progress;
-
+    var cur_value = 1,progress;
     // Make a loader.
     new PNotify({
         title: title,
@@ -145,7 +143,6 @@ function generalProgress(title) {
             // Pretend to do something.
             var timer = setInterval(function() {
                 if (cur_value >= 100) {
-
                     // Remove the interval.
                     window.clearInterval(timer);
                     loader.remove();
