@@ -18,7 +18,7 @@
             <div class="col-xs-2">
                 <input name="norm" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="NORM Pasien" value="" />
             </div>
-            <div class="col-xs-2 no-padding">
+            <div class="col-xs-2">
                 <input name="cbg" autocomplete="off" autocorrect="off" type="text" class="form-control input-xs" placeholder="CBG" value="" />
             </div>
             <div class="col-xs-3 no-padding">
