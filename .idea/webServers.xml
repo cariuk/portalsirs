@@ -10,6 +10,14 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
+      <webServer id="61c4e170-5030-4aef-b492-9b187a3aac1f" name="RSIA Amanat" url="http://192.168.10.49">
+        <fileTransfer host="192.168.10.49" port="22" rootFolder="/home/portal" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
