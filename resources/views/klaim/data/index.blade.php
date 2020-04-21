@@ -164,6 +164,7 @@
             {
                 "name" : "INACBG",
                 "class" : "col-xs-3",
+                "style" : "overflow: unset;",
                 "render"    : function (data) {
                     return data.CODECBG+" - "+data.CODECBG_DESKRIPSI;
                 }
