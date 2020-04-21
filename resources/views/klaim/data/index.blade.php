@@ -164,7 +164,7 @@
             {
                 "name" : "INACBG",
                 "class" : "col-xs-3",
-                "style" : "overflow: unset;",
+                "style" : "white-space: normal;",
                 "render"    : function (data) {
                     return data.CODECBG+" - "+data.CODECBG_DESKRIPSI;
                 }
@@ -172,7 +172,6 @@
             {
                 "name"  : "#",
                 "class" : "col-xs-2 text-center",
-                "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
                         '<div class="btn-group">\n' +
