@@ -172,6 +172,7 @@
             {
                 "name"  : "#",
                 "class" : "col-xs-2 text-center",
+                "style" : "overflow: unset;",
                 "render"    : function (data) {
                     var button =
                         '<div class="btn-group">\n' +
