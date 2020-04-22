@@ -31,7 +31,7 @@ class BerkasController extends IndexController{
             ],422);
         }
 
-        $result = (object) $this->toSIRSPRO("GET","medicalrecord/berkas/data?nopen=".$request->nopen);
+        $result = (object) $this->toSIRSPRO("GET","medicalrecord/berkas/data?nopen=".$request->nopen."&status=1");
 
         if ($result->response==null){
             return response()->json([
