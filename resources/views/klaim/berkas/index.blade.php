@@ -3,7 +3,6 @@
         <form id="filter{{$module}}">
             <div class="col-xs-6">
                 <input name="nopen" type="hidden" class="form-control input-xs" value="{{$request->nopen}}" />
-                <input name="status" type="hidden" class="form-control input-xs" value="1" />
                 <input readonly type="text" class="form-control input-xs" placeholder="NORM Pasien" value="{{$request->norm}}" />
             </div>
             <div class="col-xs-6">

@@ -10,9 +10,9 @@
             <div class="col-xs-2">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                    <input name="tanggalPulang" datepicker="datetime"
-                           date-format="YYYY-MM-DD" type="text" class="form-control input-xs text-center"
-                           placeholder="[Tgl. Plng (thn/bln/tgl)]">
+                    <input name="bulanPulang" datepicker="datetime"
+                           date-format="YYYY-MM" type="text" class="form-control input-xs text-center"
+                           placeholder="[Tgl. Plng (thn/bln)]" value="{{date("Y-m")}}">
                 </div>
             </div>
             <div class="col-xs-2">
