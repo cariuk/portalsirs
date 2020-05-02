@@ -21,7 +21,7 @@ class DataController extends IndexController{
         $result = (object) $this->toSIRSPRO("GET","klaim/data?",[
             "page" => $request->page,
             "pelayanan" => $request->pelayanan, /*Rawat Inap = 1 ,  Rawat Jalan = 2*/
-            "tanggal" => $request->tanggal, /*Y-m-d*/
+            "bulanPulang" => $request->bulanPulang, /*Y-m-d*/
             "norm" => $request->norm,
             "cbg" => $request->cbg,
             "q" => $request->q,
