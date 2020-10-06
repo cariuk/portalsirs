@@ -43,10 +43,10 @@ Route::get('reports/{path}/{filename}', function ($path, $filename) {
 Route::group(['namespace' => 'Auth'], function () {
     Route::get('/', 'LoginController@showLoginForm')->name('login');
     Route::post('/login', 'LoginController@login');
-    Route::post('/logout', 'LoginController@logout')->name('logout');
 });
 
 Route::group(['namespace' => 'Home', 'middleware' => 'auth'], function () {
     Route::get('main', 'MainController@index')->name('main');
     Route::get('main/load/{module}', 'MainController@loadModul')->name('main.load.module');
+    Route::post('/logout', 'LoginController@logout')->name('logout');
 });
