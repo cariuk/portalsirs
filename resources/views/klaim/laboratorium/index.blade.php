@@ -44,7 +44,7 @@
                 "PNOMOR" : $(el).data("nomor"),
                 "PFORMAT" : 1,
                 "PTINDAKAN" : $(el).data("tindakan"),
-                "KOP_HASIL_LAB" : "{{env("SIRSPRO")}}api/laboratorium/kop",
+                "KOP_HASIL_LAB" : "{{env("SIRSPRO")}}/api/laboratorium/kop",
                 "PJENIS" : 1,
             },
             TYPE: "Pdf",
