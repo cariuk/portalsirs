@@ -2,8 +2,12 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="36.37.114.42" id="2c9bf4de-8171-4e2d-993d-c7172979b58b" port="22" customName="Serve Apps" nameFormat="CUSTOM" />
-      <sshConfig authType="PASSWORD" host="192.168.10.49" id="73839b0e-38af-425a-a610-d8f3e3b540cf" port="22" customName="RSIA Amanat" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="36.37.114.42" id="2c9bf4de-8171-4e2d-993d-c7172979b58b" port="22" customName="Serve Apps" nameFormat="CUSTOM" username="root">
+        <option name="customName" value="Serve Apps" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="192.168.10.49" id="73839b0e-38af-425a-a610-d8f3e3b540cf" port="22" customName="RSIA Amanat" nameFormat="CUSTOM">
+        <option name="customName" value="RSIA Amanat" />
+      </sshConfig>
     </configs>
   </component>
 </project>

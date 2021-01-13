@@ -44,7 +44,8 @@
                 "PNOMOR" : $(el).data("nomor"),
                 "PFORMAT" : 1,
                 "PTINDAKAN" : $(el).data("tindakan"),
-                "KOP_HASIL_LAB" : "{{env("SIRSPRO")}}images/kop_hasil_lab_1561115968.jpeg"
+                "KOP_HASIL_LAB" : "{{env("SIRSPRO")}}images/kop_hasil_lab_1561115968.jpeg",
+                "PJENIS" : 1,
             },
             TYPE: "Pdf",
             EXT: "pdf",
