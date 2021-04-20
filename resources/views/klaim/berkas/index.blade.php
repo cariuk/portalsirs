@@ -73,15 +73,15 @@
         var columns = [
             {
                 "name" : "Tanggal & Deskripsi",
-                "class" : "col-xs-6 text-center",
+                "class" : "col-xs-8 text-center",
                 "render" : function (data) {
                     return "<label class='label label-info'>"+data.TANGGAL+"</label> <br />"+data.DESKRIPSI
                 }
             },{
                 "name" : "Document",
-                "class" : "col-xs-6 text-left",
+                "class" : "col-xs-4 text-left",
                 "render" : function (data) {
-                    return '<div class="thumbnail">\n' +
+                    return '<div class="thumbnail no-margin" style="max-width: 150px; margin: auto !important;">\n' +
                     '                    <div class="thumb">\n' +
                     '                        <img src="{{route('berkas.file')}}?nopen='+data.NOPEN+'&file='+data.FILE+'" alt="">\n' +
                     '                        <div class="caption-overflow">\n' +
