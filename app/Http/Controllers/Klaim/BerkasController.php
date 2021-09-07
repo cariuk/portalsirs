@@ -61,7 +61,13 @@ class BerkasController extends IndexController{
         }
 
         $guzzle = new Client();
-        $response = $guzzle->get(url( env("SIRSPRO")."/api/medicalrecord/berkas/view/".$request->nopen."/".$request->file."?access_token=".Auth::user()->token));
+        $response = $guzzle->get(
+            url( env("SIRSPRO")."/api/medicalrecord/berkas/view/".$request->nopen."/".$request->file."?access_token=".Auth::user()->token),[
+                'headers' => [
+                    'Accept' => 'application/json'
+                ]
+            ]
+        );
         Storage::put('public/berkas/'.$request->file, $response->getBody());
 
         $path = storage_path('app/public/berkas/'.$request->file);
