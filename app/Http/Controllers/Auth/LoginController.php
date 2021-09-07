@@ -48,7 +48,6 @@ class LoginController extends Controller{
 
     public function login(Request $request){
         $client = new Client();
-
         try {
             $getResponse = $client->request(
                 'POST',
