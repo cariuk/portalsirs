@@ -78,7 +78,12 @@ class DataController extends IndexController{
         }
 
         $guzzle = new Client();
-        $response = $guzzle->get(url( env("SIRSPRO")."/api/klaim/individualpasien/".$request->nosep."?access_token=".Auth::user()->token));
+        $response = $guzzle->get(
+            url( env("SIRSPRO")."/api/klaim/individualpasien/".$request->nosep."?access_token=".Auth::user()->token),[
+            'headers' => [
+                'Accept' => 'application/json'
+            ]
+        ]);
 
         $filename = $request->nosep.'.pdf';
         Storage::put('public/individualpasien/'.$filename, $response->getBody());
