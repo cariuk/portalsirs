@@ -94,24 +94,27 @@ class BerkasController extends IndexController{
                 "message" => $validator->messages()->first()
             ],422);
         }
+        try{
+            $guzzle = new Client();
+            $response = $guzzle->get(
+                url( env("SIRSPRO")."/api/medicalrecord/berkas/zip"),[
+                    'headers' => [
+                        'Accept' => 'application/json'
+                    ],'query' => http_build_query([
+                        "access_token" => Auth::user()->token,
+                        "nopen" => $request->nopen,
+                    ])
+                ]
+            );
 
-        $guzzle = new Client();
-        $response = $guzzle->get(
-            url( env("SIRSPRO")."/api/medicalrecord/berkas/zip"),[
-                'headers' => [
-                    'Accept' => 'application/json'
-                ],'query' => http_build_query([
-                    "access_token" => Auth::user()->token,
-                    "nopen" => $request->nopen,
-                ])
-            ]
-        );
-
-        $path = 'public/berkas/'.date("Ymd")."/".$request->norm."_".$request->nama.".zip";
-        Storage::put($path, $response->getBody());
-        if (!File::exists(storage_path("app/".$path))) {
+            $path = 'public/berkas/'.date("Ymd")."/".$request->norm."_".$request->nama.".zip";
+            Storage::put($path, $response->getBody());
+            if (!File::exists(storage_path("app/".$path))) {
+                abort(404);
+            }
+            return  Storage::download($path);
+        }catch (\Exception $exception){
             abort(404);
         }
-        return  Storage::download($path);
     }
 }
