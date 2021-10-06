@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
         Route::get('/', 'BerkasController@index')->name('berkas');
         Route::get('/loaddata', 'BerkasController@getData')->name('berkas.loaddata');
         Route::get('/file', 'BerkasController@getFile')->name('berkas.file');
+        Route::get('/zip', 'BerkasController@getZip')->name('berkas.zip');
     });
 
     Route::group(['prefix' => 'laporanoperasi'], function () {

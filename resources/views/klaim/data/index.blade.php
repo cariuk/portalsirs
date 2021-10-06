@@ -85,6 +85,20 @@
             complete: function () {},
         });
     };
+    var downloadBerkas{{$module}} = function (el) {
+        var url = "{{route('berkas.zip')}}"
+        $.ajax({
+            url: "{{route('berkas.zip')}}",
+            data: $(el).data(),
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                window.location(response);
+            },
+            beforeSend: function () {},
+            complete: function () {},
+        });
+    };
     var rincian{{$module}} = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
@@ -124,7 +138,6 @@
             complete: function () {},
         });
     };
-
     var operasi{{$module}} = function (el) {
         $.ajax({
             url: "{{route('operasi')}}",
@@ -187,7 +200,16 @@
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Rincian Billing</a>' +
                                     '</li>\n' +
                                     '<li>' +
-                                        '<a href="#" data-nopen="'+data.NOPEN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="berkas{{$module}}(this)">'+'<i class="icon-books"></i>'+'Berkas</a>' +
+                                        '<hr>'+
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="#" data-nopen="'+data.NOPEN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="berkas{{$module}}(this)">'+'<i class="icon-books"></i>'+'Lihat Berkas</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="{{route("berkas.zip")}}?nopen='+data.NOPEN+'&norm='+data.NORM+'&nama='+data.NAMA+'" target="_blank">'+'<i class="icon-file-download"></i>'+'Donwload Berkas</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<hr>'+
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">'+'<i class="fa fa-flask"></i>'+'Laboratorium</a>' +
