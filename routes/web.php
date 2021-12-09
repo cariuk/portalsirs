@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('instansi', 'Home\InstansiController@getData')->name("instansi");
+
 Route::get('images/{filename}', function ($filename) {
     $path = storage_path('app/public/images/' . $filename);
     if (!File::exists($path)) {

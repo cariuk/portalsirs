@@ -21,7 +21,7 @@ class Controller extends BaseController {
                 url( env("SIRSPRO")."/api/".$uri), [
                     'headers' => [
                         'Accept' => 'application/json',
-                        'Authorization' => "Bearer ".Auth::user()->token,
+                        'Authorization' => "Bearer ".(Auth::check()?Auth::user()->token:""),
                     ],RequestOptions::JSON => $request
                 ]
             );

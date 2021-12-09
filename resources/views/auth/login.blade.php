@@ -2,25 +2,31 @@
 @section('content')
     <form id="formlogin" method="post" autocomplete="off">
         <div class="col-lg-6 col-lg-offset-3">
-            <div class="panel" >
+            <div id="instansi" class="row" style="padding-bottom:5px;">
+
+            </div>
+            <div class="panel">
                 <div class="panel-body">
                     <div class="content-divider text-muted form-group"><span>Silahkan Masuk</span></div>
                     <div class="form-group has-feedback has-feedback-left">
                         {{csrf_field()}}
-                        <input name="username" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" class="form-control" placeholder="Nama Pengguna" required="required">
+                        <input name="username" type="text" autocomplete="off" autocorrect="off" autocapitalize="off"
+                               class="form-control" placeholder="Nama Pengguna" required="required">
                         <div class="form-control-feedback">
                             <i class="icon-user text-muted"></i>
                         </div>
                     </div>
 
                     <div class="form-group has-feedback has-feedback-left">
-                        <input name="password" type="password" class="form-control" placeholder="Kata Sandi" required="required">
+                        <input name="password" type="password" class="form-control" placeholder="Kata Sandi"
+                               required="required">
                         <div class="form-control-feedback">
                             <i class="icon-lock2 text-muted"></i>
                         </div>
                     </div>
                     <div class="form-group">
-                         <button type="submit" class="btn btn-primary pull-right">Masuk <i class="icon-circle-right2 position-right"></i></button>
+                        <button type="submit" class="btn btn-primary pull-right">Masuk <i
+                                class="icon-circle-right2 position-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -28,52 +34,78 @@
     </form>
     <!-- /simple login form -->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
+            $.ajax({
+                url: "{{route("instansi")}}",
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    var instansi = response.response;
+                    console.log(instansi);
+                    $("#instansi").html(
+                        "<table>" +
+                            "<tr>" +
+                                "<td>" +
+                                    "<img src='{{env("SIRSPRO")}}/images/"+instansi.LOGO+"' alt='Logo Rumah Sakit' width='120px'>" +
+                                "</td>" +
+                                "<td>" +
+                                    "<div style='font-size:34px;line-height:30px;color:#404040;'>"+instansi.NAMA+"</div>" +
+                                    "<div>"+instansi.ALAMAT+"  | Telp. "+instansi.TELEPON+"</div>" +
+                                    "<div> Email. "+instansi.EMAIL+" | Home Page. "+instansi.WEBSITE+"</div>" +
+                                "</td>" +
+                            "</tr>" +
+                        "</table>"
+                    );
+                }, beforeSend: function (jqXHR) {},
+                complete: function (jqXHR) {},
+                error: function (xhr, thrownError, err) {}
+            });
+
             $("#formlogin").validate({
                 ignore: 'input[type=hidden], .select2-input', // ignore hidden fields
                 focusInvalid: false,
-                highlight: function(element) {
+                highlight: function (element) {
                     $(element).closest('.form-group>div').addClass('has-error');
                 },
-                unhighlight: function(element) {
+                unhighlight: function (element) {
                     $(element).closest('.form-group>div').removeClass('has-error');
                 },
                 //# Popover Error
-                showErrors: function(errorMap, errorList) {
-                    $.each(this.successList, function(index, value) {
+                showErrors: function (errorMap, errorList) {
+                    $.each(this.successList, function (index, value) {
                         $(value).parent().removeClass('has-error');
                         $(value).popover('hide');
                     });
-                    $.each(errorList, function(index, value) {
+                    $.each(errorList, function (index, value) {
                         $(value.element).parent().addClass('has-error');
                         $(value.element).popover('show');
                     });
                 },
                 validClass: "validation-valid-label",
-                success: function(label) {
+                success: function (label) {
                     label.addClass("validation-valid-label").text("Success.")
                 },
-                submitHandler: function() {
+                submitHandler: function () {
                     $.ajax({
-                        url		: "{{url('login')}}",
-                        data	: $("#formlogin").serialize(),
-                        type	:"POST",
+                        url: "{{url('login')}}",
+                        data: $("#formlogin").serialize(),
+                        type: "POST",
                         dataType: "json",
-                        success	: function(response){
-                            if (response.status==200){
-                                $.each(response.callback.action,function(index, val) {
+                        success: function (response) {
+                            if (response.status == 200) {
+                                $.each(response.callback.action, function (index, val) {
                                     eval(val);
                                 });
                             }
                         },
                         beforeSend: function () {
-                            generalSpinner($("body"),true);
+                            generalSpinner($("body"), true);
                         },
                         complete: function (xhr) {
-                            generalSpinner($("body"),false);
+                            generalSpinner($("body"), false);
                         },
-                        error:function(xhr,thrownError,err){
-                            generalSpinner($("body"),false);
+                        error: function (xhr, thrownError, err) {
+                            generalSpinner($("body"), false);
                             generalNotify('', xhr.responseJSON.message, 'danger');
                         }
                     });
