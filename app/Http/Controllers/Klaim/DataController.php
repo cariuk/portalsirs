@@ -93,4 +93,28 @@ class DataController extends IndexController{
             "url" => route("reports.view",["individualpasien",Crypt::encryptString($filename)])
         ]);
     }
+
+    public function getSEP(Request $request){
+        $post = [
+            "NAME" => $request->input("NAME"),
+            "PARAMETER" => $request->input("PARAMETER"),
+            "TYPE" => $request->input("TYPE"),
+            "EXT" => $request->input("EXT"),
+            "PRINT_NAME" => "report",
+            "COPIES" => 1,
+            "REQUEST_FOR_PRINT" => false,
+        ];
+        $result = (object) $this->toSIRSPRO("POST","report/request",$post);
+        $url = $result->response->response;
+
+        $guzzle = new Client();
+        $response = $guzzle->get($url);
+        $filename = time().'.pdf';
+        Storage::put('public/sep/'.$filename, $response->getBody());
+
+        return response()->json([
+            "status" => 200,
+            "url" => route("reports.view",["sep",Crypt::encryptString($filename)])
+        ]);
+    }
 }

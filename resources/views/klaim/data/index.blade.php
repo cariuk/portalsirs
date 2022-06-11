@@ -99,6 +99,31 @@
             complete: function () {},
         });
     };
+    var sep{{$module}} = function (el) {
+        var request = {
+            NAME: $(el).attr("report-name"),
+            PARAMETER: {
+                "PSEP" : $(el).data("nosep"),
+            },
+            TYPE: print ? $(el).attr("report-type") : "Pdf",
+            EXT: print ? $(el).attr("report-ext") : "pdf",
+            PRINT_NAME: $(el).attr("print-name"),
+            COPIES: $(el).attr("print-copies"),
+            REQUEST_FOR_PRINT: false
+        };
+        $.ajax({
+            url: "{{route($module.'.sep')}}",
+            data: request,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                window.open(response.url, '_blank');
+            },
+            beforeSend: function () {},
+            complete: function () {},
+        });
+    };
+
     var rincian{{$module}} = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
@@ -195,6 +220,9 @@
                                 '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">\n' +
                                     '<li>' +
                                         '<a href="#" data-nosep="'+data.NOSEP+'" onclick="individual{{$module}}(this)">'+'<i class="icon-magazine"></i>'+'Lembar Individual</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="#" data-nosep="'+data.NOSEP+'" report-name="bpjs.CetakSEP" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'SEP</a>' +
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Rincian Billing</a>' +

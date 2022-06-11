@@ -19,16 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="Perbaikan">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_12_18_20__11_02_AM.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/InstansiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="Perbaikan dan Penambahaan Informasi Instansi">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Klaim/DataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Klaim/DataController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/klaim.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/klaim.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,14 +291,9 @@
       <workItem from="1633987978813" duration="8000" />
       <workItem from="1633988000769" duration="2011000" />
       <workItem from="1634091774342" duration="357000" />
-      <workItem from="1639030481161" duration="920000" />
-    </task>
-    <task id="LOCAL-00050" summary="Perbaikan Menu">
-      <created>1575698657341</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1575698657341</updated>
+      <workItem from="1639030481161" duration="1406000" />
+      <workItem from="1654215363066" duration="480000" />
+      <workItem from="1654906730391" duration="424000" />
     </task>
     <task id="LOCAL-00051" summary="Fixed Perbaikan">
       <created>1575698766398</created>
@@ -641,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633934592491</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Perbaikan dan Penambahaan Informasi Instansi">
+      <created>1639035405107</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1639035405107</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +669,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Perbaikan Data" />
     <MESSAGE value="Perbaikan layout" />
     <MESSAGE value="Add Layout Laboratorium" />
     <MESSAGE value="Perbaikan Cetak Hasil Laboratorium" />
@@ -697,6 +693,7 @@
     <MESSAGE value="Perbaikan Request Header Image" />
     <MESSAGE value="Perbaikan Request Header Lembar Individual" />
     <MESSAGE value="Perbaikan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan" />
+    <MESSAGE value="Perbaikan dan Penambahaan Informasi Instansi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan dan Penambahaan Informasi Instansi" />
   </component>
 </project>
