@@ -222,7 +222,7 @@
                                         '<a href="#" data-nosep="'+data.NOSEP+'" onclick="individual{{$module}}(this)">'+'<i class="icon-magazine"></i>'+'Lembar Individual</a>' +
                                     '</li>\n' +
                                     '<li>' +
-                                        '<a href="#" data-nosep="'+data.NOSEP+'" report-name="bpjs.CetakSEP" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'SEP</a>' +
+                                        '<a href="#" data-nosep="'+data.NOSEP+'" report-name="bpjs.CetakSEP" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="sep{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'SEP</a>' +
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" report-name="pembayaran.CetakRincianPasien" report-type="Pdf" report-ext="pdf" print-name="CetakRincian" class="cetak-tagihan" onclick="rincian{{$module}}(this)">'+'<i class="icon-file-eye"></i>'+'Rincian Billing</a>' +
