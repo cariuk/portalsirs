@@ -19,11 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="Perbaikan dan Penambahaan Informasi Instansi">
+    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="Perbaikan Proxy Reserve">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Klaim/DataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Klaim/DataController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/klaim.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/klaim.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +57,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
@@ -159,20 +164,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/routes/web.php&#10;gener&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/public/assets/js/general.js&#10;berka&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/app/Http/Controllers/Klaim/BerkasController.php&#10;kla&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/routes/klaim.php&#10;api&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/routes/api.php&#10;gene&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/public/assets/js/general.js&#10;lab&#9;null&#9;null&#10;kl&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/routes/klaim.php&#10;app.js&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/public/assets/js/core/app.js&#10;login.j&#9;FILE&#9;file:///Volumes/Macintosh Data/ProjectSites/sisonline/public/assets/js/pages/login.js" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/storage/app/public/berkas" />
@@ -294,13 +299,11 @@
       <workItem from="1639030481161" duration="1406000" />
       <workItem from="1654215363066" duration="480000" />
       <workItem from="1654906730391" duration="424000" />
-    </task>
-    <task id="LOCAL-00051" summary="Fixed Perbaikan">
-      <created>1575698766398</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1575698766398</updated>
+      <workItem from="1671257708208" duration="531000" />
+      <workItem from="1671343500107" duration="911000" />
+      <workItem from="1682566624182" duration="533000" />
+      <workItem from="1682586697996" duration="1574000" />
+      <workItem from="1684204645310" duration="353000" />
     </task>
     <task id="LOCAL-00052" summary="Fixed Perbaikan">
       <created>1575700217292</created>
@@ -638,7 +641,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639035405107</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Perbaikan Proxy Reserve">
+      <created>1682566678697</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1682566678697</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,12 +674,10 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Perbaikan layout" />
     <MESSAGE value="Add Layout Laboratorium" />
     <MESSAGE value="Perbaikan Cetak Hasil Laboratorium" />
     <MESSAGE value="Perbaikan Report" />
@@ -694,6 +702,7 @@
     <MESSAGE value="Perbaikan Request Header Lembar Individual" />
     <MESSAGE value="Perbaikan" />
     <MESSAGE value="Perbaikan dan Penambahaan Informasi Instansi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan dan Penambahaan Informasi Instansi" />
+    <MESSAGE value="Perbaikan Proxy Reserve" />
+    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan Proxy Reserve" />
   </component>
 </project>

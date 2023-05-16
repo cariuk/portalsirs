@@ -60,6 +60,7 @@ class LoginController extends Controller{
                     ]
                 ]
             );
+
             $getResponse = json_decode($getResponse->getBody());
             if ($getResponse == null) {
                 return response()->json([
@@ -67,6 +68,7 @@ class LoginController extends Controller{
                     "message" => "",
                 ]);
             }
+
             $response = $getResponse->response;
             $sirsproUser = $response->user;
 

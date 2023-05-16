@@ -8,6 +8,8 @@
       <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="192.168.10.49" id="73839b0e-38af-425a-a610-d8f3e3b540cf" port="22" customName="RSIA Amanat" nameFormat="CUSTOM" username="portal">
         <option name="customName" value="RSIA Amanat" />
       </sshConfig>
+      <sshConfig authType="PASSWORD" host="10.10.1.10" id="ef63cec2-690e-4f4f-8d08-18bda1cc2a4f" port="22" nameFormat="DESCRIPTIVE" username="portal" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" host="103.150.60.33" id="505c3928-35ba-4644-8049-127cb9de3d9c" port="8095" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>

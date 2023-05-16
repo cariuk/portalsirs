@@ -3,9 +3,9 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="bc5744ee-d37e-4e91-9818-9b1ff279784e" name="Serve Apps" url="http://36.37.114.42">
-        <fileTransfer rootFolder="/home/portal" accessType="SFTP" host="36.37.114.42" port="22" sshConfigId="2c9bf4de-8171-4e2d-993d-c7172979b58b" sshConfig="Serve Apps">
+        <fileTransfer rootFolder="/home/portal" accessType="SFTP" host="103.150.60.33" port="8095" sshConfigId="505c3928-35ba-4644-8049-127cb9de3d9c" sshConfig="root@103.150.60.33:8095 password">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
@@ -13,6 +13,13 @@
         <fileTransfer rootFolder="/home/portal" accessType="SFTP" host="192.168.10.49" port="22" sshConfigId="73839b0e-38af-425a-a610-d8f3e3b540cf" sshConfig="RSIA Amanat">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="90debb8a-659a-4d74-b9bc-bf21bb02960a" name="Permata Hati">
+        <fileTransfer rootFolder="/home/portal" accessType="SFTP" host="103.150.60.33" port="8095" sshConfigId="505c3928-35ba-4644-8049-127cb9de3d9c" sshConfig="root@103.150.60.33:8095 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
