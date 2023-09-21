@@ -57,7 +57,7 @@
             PARAMETER: {
                 "PFORMAT" : 1,
                 "PTINDAKAN" : $(el).data("tindakan"),
-                "LOGO" : logo
+                "PLOGO" : logo
             },
             TYPE: "Pdf",
             EXT: "pdf",
