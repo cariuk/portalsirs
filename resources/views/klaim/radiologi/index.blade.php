@@ -37,13 +37,27 @@
     var pagination{{$module}} = $('.twbs-pagination{{$module}}');
     pagination{{$module}}.twbsPagination(defaultOpts);
 
+    let Logo = "";
+
+    $.ajax({
+        url: "{{route("instansi")}}",
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+            var instansi = response.response;
+            logo = '{{env("SIRSPRO")}}/images/'+instansi.LOGO;
+        }, beforeSend: function (jqXHR) {},
+        complete: function (jqXHR) {},
+        error: function (xhr, thrownError, err) {}
+    });
+
     var cetakHasilRadiologi = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
             PARAMETER: {
                 "PFORMAT" : 1,
                 "PTINDAKAN" : $(el).data("tindakan"),
-                "LOGO" : "{{env("SIRSPRO")}}/api/laboratorium/kop",
+                "LOGO" : logo
             },
             TYPE: "Pdf",
             EXT: "pdf",

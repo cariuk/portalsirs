@@ -22,18 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="feat: cetak esep">
-      <change afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Klaim/RadiologiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/klaim/radiologi/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="feat: hasil radiologi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/klaim/laboratorium/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/klaim/laboratorium/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/klaim.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/klaim.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +319,7 @@
       <workItem from="1692068521252" duration="10000" />
       <workItem from="1693293876333" duration="519000" />
       <workItem from="1693304896000" duration="217000" />
-      <workItem from="1695268543627" duration="4344000" />
+      <workItem from="1695268543627" duration="4767000" />
     </task>
     <task id="LOCAL-00053" summary="Perbaikan Login">
       <created>1575700801928</created>
@@ -674,7 +664,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684205012414</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +694,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Perbaikan Cetak Hasil Laboratorium" />
     <MESSAGE value="Perbaikan Report" />
     <MESSAGE value="Fixed Laporan Hasil Laboratorium" />
     <MESSAGE value="Perbaikan Login" />
@@ -729,6 +718,7 @@
     <MESSAGE value="Perbaikan dan Penambahaan Informasi Instansi" />
     <MESSAGE value="Perbaikan Proxy Reserve" />
     <MESSAGE value="feat: cetak esep" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: cetak esep" />
+    <MESSAGE value="feat: hasil radiologi" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: hasil radiologi" />
   </component>
 </project>
