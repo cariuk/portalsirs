@@ -28,6 +28,13 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
         Route::get('/loaddata', 'LaboratoriumController@getData')->name('laboratorium.loaddata');
         Route::get('/cetak', 'LaboratoriumController@getReport')->name('laboratorium.report');
     });
+
+    Route::group(['prefix' => 'radiologi'], function () {
+        Route::get('/', 'RadiologiController@index')->name('radiologi');
+        Route::get('/loaddata', 'RadiologiController@getData')->name('radiologi.loaddata');
+        Route::get('/cetak', 'RadiologiController@getReport')->name('radiologi.report');
+    });
+
     Route::group(['prefix' => 'berkas'], function () {
         Route::get('/', 'BerkasController@index')->name('berkas');
         Route::get('/loaddata', 'BerkasController@getData')->name('berkas.loaddata');

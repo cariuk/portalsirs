@@ -72,6 +72,22 @@
             },
         });
     };
+    var radiologi{{$module}} = function (el) {
+        $.ajax({
+            url: "{{route('radiologi')}}",
+            data: $(el).data(),
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                createDialog("laboratorium",response.subcontent);
+            },
+            beforeSend: function () {
+            },
+            complete: function () {
+            },
+        });
+    };
+
     var berkas{{$module}} = function (el) {
         $.ajax({
             url: "{{route('berkas')}}",
@@ -241,6 +257,9 @@
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="laboratorium{{$module}}(this)">'+'<i class="fa fa-flask"></i>'+'Laboratorium</a>' +
+                                    '</li>\n' +
+                                    '<li>' +
+                                        '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="radiologi{{$module}}(this)">'+'<i class="med-toxic-sign"></i>'+'Radiologi</a>' +
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="operasi{{$module}}(this)">'+'<i class="med-examination"></i>'+'Laporan Operasi</a>' +

@@ -37,15 +37,13 @@
     var pagination{{$module}} = $('.twbs-pagination{{$module}}');
     pagination{{$module}}.twbsPagination(defaultOpts);
 
-    var hasillab{{$module}} = function (el) {
+    var cetakHasilRadiologi = function (el) {
         var request = {
             NAME: $(el).attr("report-name"),
             PARAMETER: {
-                "PNOMOR" : $(el).data("nomor"),
                 "PFORMAT" : 1,
                 "PTINDAKAN" : $(el).data("tindakan"),
-                "KOP_HASIL_LAB" : "{{env("SIRSPRO")}}/api/laboratorium/kop",
-                "PJENIS" : 1,
+                "LOGO" : "{{env("SIRSPRO")}}/api/laboratorium/kop",
             },
             TYPE: "Pdf",
             EXT: "pdf",
@@ -83,18 +81,27 @@
                 "render" : function (data) {
                     return data.TANGGAL+" <br />"+data.NOMOR
                 }
-            },{
-                "name"  : "#",
-                "class" : "col-xs-4 text-center",
-                "style" : "overflow: unset;",
-                "render"    : function (data) {
-                    var button =
-                        '<button type="button" report-name="layanan.CetakHasilLab" data-nomor="'+data.NOMOR+'" data-tindakan="'+data.TINDAKAN+'" class="btn btn-primary btn-icon" onclick="hasillab{{$module}}(this)">\n' +
-                            '<i class="icon-file-eye"></i> Cetak Hasil\n' +
-                        '</button>';
-                    return button;
+            }, {
+                "name": "#",
+                "class": "col-xs-2 text-right",
+                "style": "overflow:unset;",
+                "render": function (data) {
+                    let menuItem = '<div class="btn-group">'
+                    menuItem += '<button type="button" class="btn btn-primary btn-icon dropdown-toggle" data-toggle="dropdown">'
+                    menuItem += '<i class="icon-menu7"></i> Hasil Rad &nbsp;<span class="caret"></span>'
+                    menuItem += '</button>'
+                    menuItem += '<ul class="dropdown-menu dropdown-menu-right" style="z-index: 10000;">'
+                    $.each(data.DETAIL, function (key, value) {
+                        menuItem += '<li>'
+                        menuItem += '<a href="javascript:void(0)" data-nomor="' + data.NOMOR + '" data-tindakan="' + value.REF + '" report-name="layanan.CetakHasilRad" report-type="Pdf" report-EXT="pdf" print-name="CetakHasilLab" onclick="cetakHasilRadiologi(this)">'
+                        menuItem += '<i class="med-medical-records"></i> &nbsp;'+value.NAMA+'</a>'
+                        menuItem += '</li>'
+                    });
+                    menuItem += '</ul>'
+                    menuItem += '</div>';
+                    return menuItem;
                 }
-            },
+            }
         ];
         getData('{{$module}}',"{{route($module.'.loaddata')}}",columns,pagination{{$module}},spinner{{$module}});
     }

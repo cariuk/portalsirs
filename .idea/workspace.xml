@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,18 +22,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="Perbaikan Proxy Reserve">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+    <list default="true" id="a4273d72-f1e8-4456-8319-f76fa1bb0e66" name="Default Changelist" comment="feat: cetak esep">
+      <change afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Klaim/RadiologiController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/klaim/radiologi/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/klaim/data/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/klaim/laboratorium/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/klaim/laboratorium/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/klaim.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/klaim.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/public/assets/js/plugins/clipboard/composer.json" />
+    </option>
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
@@ -64,7 +77,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
@@ -164,27 +177,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/mopilie/PhpstormProjects/portalsirs/resources/views/klaim",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/storage/app/public/berkas" />
       <recent name="$PROJECT_DIR$/resources/views/klaim" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/storage/app/public/berkas" />
       <recent name="$PROJECT_DIR$/storage/app/public/tagihan" />
       <recent name="$PROJECT_DIR$/storage/app/public/laboratorium" />
-      <recent name="$PROJECT_DIR$/routes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/klaim/data" />
@@ -303,14 +324,12 @@
       <workItem from="1671343500107" duration="911000" />
       <workItem from="1682566624182" duration="533000" />
       <workItem from="1682586697996" duration="1574000" />
-      <workItem from="1684204645310" duration="353000" />
-    </task>
-    <task id="LOCAL-00052" summary="Fixed Perbaikan">
-      <created>1575700217292</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1575700217292</updated>
+      <workItem from="1684204645310" duration="977000" />
+      <workItem from="1688857430243" duration="195000" />
+      <workItem from="1692068521252" duration="10000" />
+      <workItem from="1693293876333" duration="519000" />
+      <workItem from="1693304896000" duration="217000" />
+      <workItem from="1695268543627" duration="4344000" />
     </task>
     <task id="LOCAL-00053" summary="Perbaikan Login">
       <created>1575700801928</created>
@@ -648,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682566678697</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="feat: cetak esep">
+      <created>1684205012414</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1684205012414</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +704,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Add Layout Laboratorium" />
     <MESSAGE value="Perbaikan Cetak Hasil Laboratorium" />
     <MESSAGE value="Perbaikan Report" />
     <MESSAGE value="Fixed Laporan Hasil Laboratorium" />
@@ -703,6 +728,7 @@
     <MESSAGE value="Perbaikan" />
     <MESSAGE value="Perbaikan dan Penambahaan Informasi Instansi" />
     <MESSAGE value="Perbaikan Proxy Reserve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan Proxy Reserve" />
+    <MESSAGE value="feat: cetak esep" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: cetak esep" />
   </component>
 </project>
