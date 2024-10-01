@@ -15,6 +15,7 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
     Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
     });
+
     Route::group(['prefix' => 'data'], function () {
         Route::get('/', 'DataController@index')->name('data');
         Route::get('/loaddata', 'DataController@getData')->name('data.loaddata');
@@ -46,5 +47,9 @@ Route::group(['namespace' => 'Klaim','prefix' => 'klaim'], function () {
         Route::get('/', 'LaporanOperasiController@index')->name('operasi');
         Route::get('/loaddata', 'LaporanOperasiController@getData')->name('operasi.loaddata');
         Route::get('/cetak', 'LaporanOperasiController@getReport')->name('operasi.report');
+    });
+
+    Route::group(['prefix' => 'generate'], function () {
+        Route::get('/', 'GeneratePdfBerkasKlaimController@index')->name('klaim.generate.pdf');
     });
 });

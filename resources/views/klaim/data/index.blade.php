@@ -195,6 +195,14 @@
         });
     };
 
+    var downloadPDF{{$module}} = function(el){
+        var data = $(el).data();
+        window.open(
+            "{{route('klaim.generate.pdf')}}?NOPEN="+data.nopen+"&NOSEP="+data.nosep+"&TAGIHAN="+data.tagihan,
+            '_blank'
+        );
+    }
+
     $(document).ready(function () {
         loaddata{{$module}}();
     });
@@ -263,6 +271,10 @@
                                     '</li>\n' +
                                     '<li>' +
                                         '<a href="#" data-tagihan="'+data.TAGIHAN+'" data-norm="'+data.NORM+'" data-nama="'+data.NAMA+'" onclick="operasi{{$module}}(this)">'+'<i class="med-examination"></i>'+'Laporan Operasi</a>' +
+                                    '</li>\n' +
+                                    '<hr>'+
+                                    '<li>' +
+                                        '<a href="#" data-nopen="'+data.NOPEN+'" data-tagihan="'+data.TAGIHAN+'" data-nosep="'+data.NOSEP+'" data-norm="'+data.NORM+'" onclick="downloadPDF{{$module}}(this)">'+'<i class="icon-books"></i>'+'Download Berkas PDF</a>' +
                                     '</li>\n' +
                                 '</ul>\n' +
                         '</div>';
